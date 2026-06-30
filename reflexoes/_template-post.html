@@ -1,0 +1,109 @@
+<!doctype html>
+<!--
+  ===========================================================================
+  MODELO DE POST (não publicado / não linkado).
+  Para criar um novo texto:
+    1. Copie este arquivo para  reflexoes/posts/seu-titulo-em-minusculas.html
+       (use hífens, sem acentos e sem espaços no nome do arquivo).
+    2. Substitua TODOS os campos marcados com {{ ... }}.
+    3. Adicione um card na listagem em  reflexoes/index.html  (copie um
+       <article class="post-card">) e, se quiser, na home (seção Reflexões).
+    4. Acrescente a nova URL em  sitemap.xml.
+  ===========================================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{TITULO}} — Reflexões · Giovanna Gimenez</title>
+  <meta name="description" content="{{DESCRICAO_ATE_160_CARACTERES}}">
+  <link rel="canonical" href="https://SEU-USUARIO.github.io/SEU-REPO/reflexoes/posts/{{ARQUIVO}}.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="{{TITULO}}">
+  <meta property="og:description" content="{{RESUMO_CURTO}}">
+  <meta property="og:url" content="https://SEU-USUARIO.github.io/SEU-REPO/reflexoes/posts/{{ARQUIVO}}.html">
+  <meta property="og:image" content="https://SEU-USUARIO.github.io/SEU-REPO/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#6C7050">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{TITULO}}",
+    "datePublished": "{{AAAA-MM-DD}}",
+    "dateModified": "{{AAAA-MM-DD}}",
+    "inLanguage": "pt-BR",
+    "author": { "@type": "Person", "name": "Giovanna Gimenez" },
+    "publisher": { "@type": "Person", "name": "Giovanna Gimenez" },
+    "image": "https://SEU-USUARIO.github.io/SEU-REPO/assets/images/og-image.jpg",
+    "mainEntityOfPage": "https://SEU-USUARIO.github.io/SEU-REPO/reflexoes/posts/{{ARQUIVO}}.html"
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="cabecalho" data-cabecalho>
+    <div class="container cabecalho__inner">
+      <a class="logo" href="../../index.html">Giovanna Gimenez <span>· Psicanálise Clínica</span></a>
+      <nav class="nav" data-nav aria-label="Navegação principal">
+        <button class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+        <ul class="nav__lista" id="menu">
+          <li><a class="nav__link" href="../../index.html#inicio">Início</a></li>
+          <li><a class="nav__link" href="../../index.html#sobre">Sobre</a></li>
+          <li><a class="nav__link" href="../index.html">Reflexões</a></li>
+          <li><a class="nav__link" href="../../index.html#contato">Contato</a></li>
+          <li><a class="btn btn--primario" href="https://wa.me/5511999999999">Agendar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <article class="artigo">
+      <div class="artigo__wrap">
+        <a class="artigo__voltar" href="../index.html">← Voltar para Reflexões</a>
+        <h1>{{TITULO}}</h1>
+        <p class="artigo__meta"><time datetime="{{AAAA-MM-DD}}">{{DATA_POR_EXTENSO}}</time> · {{X}} min de leitura</p>
+
+        <div class="artigo__corpo">
+          <p>{{PRIMEIRO_PARAGRAFO}}</p>
+          <h2>{{SUBTITULO}}</h2>
+          <p>{{PARAGRAFO}}</p>
+          <!-- Acrescente quantos <p> e <h2> precisar. -->
+          <p><em>Este texto tem caráter reflexivo e não substitui um acompanhamento individual.</em></p>
+        </div>
+
+        <div class="artigo__cta">
+          <h2>Quer conversar sobre isso?</h2>
+          <p>Se algo aqui ressoou com o que você tem vivido, podemos conversar.</p>
+          <a class="btn btn--primario" href="https://wa.me/5511999999999">Agendar sua primeira conversa</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p class="rodape__frase">A psicanálise não oferece respostas prontas. Ela abre espaço para que você se escute de verdade.</p>
+      <p class="rodape__copy">© <span data-ano>2026</span> Giovanna Gimenez · Psicanálise Clínica.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Troque a URL abaixo pela do seu GitHub Pages (ver README.md)
+Sitemap: https://SEU-USUARIO.github.io/SEU-REPO/sitemap.xml

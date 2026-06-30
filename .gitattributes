@@ -1,0 +1,6 @@
+# Normaliza finais de linha no repositório
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.ico binary
+*.webp binary

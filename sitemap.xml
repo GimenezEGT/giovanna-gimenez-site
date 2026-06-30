@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Troque "SEU-USUARIO" e "SEU-REPO" pela URL real do GitHub Pages.
+     Ao publicar um novo post, adicione uma nova <url> abaixo. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://SEU-USUARIO.github.io/SEU-REPO/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://SEU-USUARIO.github.io/SEU-REPO/reflexoes/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://SEU-USUARIO.github.io/SEU-REPO/reflexoes/posts/ansiedade-quando-tudo-parece-urgente.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://SEU-USUARIO.github.io/SEU-REPO/reflexoes/posts/autoestima-e-o-valor-que-atribuimos-a-nos.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://SEU-USUARIO.github.io/SEU-REPO/reflexoes/posts/adolescencia-escutar-o-que-ainda-nao-tem-palavra.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
