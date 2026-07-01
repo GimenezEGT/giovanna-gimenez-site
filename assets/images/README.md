@@ -1,8 +1,20 @@
 # Imagens — guia para a cliente
 
-Esta pasta guarda as fotos do site. Os arquivos atuais são **placeholders**:
-substitua-os pelas fotos reais **mantendo exatamente os mesmos nomes de arquivo**,
-assim o site continua funcionando sem editar o código.
+Esta pasta guarda as fotos do site. Enquanto as fotos reais não chegam, o site mostra
+**placeholders ilustrados** (desenhos em SVG): `giovanna-hero.svg` (primeira dobra) e
+`giovanna-sobre.svg` (seção "Sobre mim"). São leves e servem só para o site ficar
+apresentável nesse intervalo.
+
+## Como colocar as fotos reais
+
+1. Coloque a foto nesta pasta como `giovanna-hero.jpg` (e, se quiser, a versão otimizada
+   `giovanna-hero.webp`) — o mesmo vale para `giovanna-sobre.jpg`/`.webp`.
+2. No arquivo `index.html`, localize o bloco `<picture>` correspondente (há um comentário
+   logo acima explicando) e troque as duas linhas que apontam para o `.svg` pelas versões
+   `.jpg`/`.webp` já indicadas no comentário. É uma troca de duas linhas por seção.
+
+> A foto de compartilhamento (`og-image.jpg`) **não** usa SVG: continua sendo um arquivo
+> de imagem normal — basta substituí-lo mantendo o mesmo nome.
 
 ## Estética desejada
 

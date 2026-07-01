@@ -30,10 +30,19 @@ description: "Task list — Refinamento visual e de conteúdo"
       (verificado via preview: sem `.js-reveal` todos os 14 `.reveal` têm opacity:1;
       com JS, 14/14 revelam ao rolar; 0 erros de console)
 
-## Phase 5: US3 — Ilustrações-placeholder (P3) — PENDENTE
-- [ ] T010 [US3] Ilustração SVG "hero" (janela/luz/planta) substituindo o bloco chapado
-- [ ] T011 [US3] Ilustração SVG "sobre" (xícara/caderno/planta)
-- [ ] T012 [US3] Garantir `<picture>`/nomes intactos para troca pelas fotos reais + `alt`
+## Phase 5: US3 — Placeholders ilustrados (P3) 🎯 ✅
+> **Abordagem (Opção B, aprovada):** manter o `<picture>` intacto e referenciar um
+> arquivo `.svg` no `<img>`/`<source>`; a troca pela foto real continua trivial
+> (editar o bloco `<picture>` — documentado no README de imagens). `viewBox` nas
+> proporções do layout para não causar layout shift (constituição IV).
+- [X] T010 [US3] Placeholder ilustrado SVG "hero" (janela/luz/planta), proporção 4:5
+      (`viewBox 640×800`), substituindo o bloco chapado
+- [X] T011 [US3] Placeholder ilustrado SVG "sobre" (xícara/caderno/planta), proporção 3:4
+      (`viewBox 480×640`)
+- [X] T012 [US3] Manter `<picture>` e `alt` significativos; SVG decorativo `aria-hidden`;
+      atualizar `assets/images/README.md` com a instrução de troca (Opção B)
+      (verificado via preview: SVGs 200/`image/svg+xml`, 640×800 e 480×640, sem 404,
+      sem scroll horizontal, 0 erros de console; rasters de hero/sobre removidos)
 
 ## Phase 6: US4 — Microcopy (P3) — PENDENTE
 - [ ] T013 [US4] Revisão leve de subtítulos/CTAs/apoios preservando marcadores editáveis
