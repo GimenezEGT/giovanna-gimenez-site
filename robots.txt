@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Troque a URL abaixo pela do seu GitHub Pages (ver README.md)
-Sitemap: https://SEU-USUARIO.github.io/SEU-REPO/sitemap.xml
+# Se migrar para domínio próprio, atualize a URL abaixo (ver README.md)
+Sitemap: https://gimenezegt.github.io/giovanna-gimenez-site/sitemap.xml
