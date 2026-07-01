@@ -73,14 +73,22 @@ Objetivos, em ordem de prioridade:
 
 | Token            | Hex       | Uso                                            |
 |------------------|-----------|------------------------------------------------|
-| `--cor-creme`    | `#F6F2EB` | Fundo principal                                |
-| `--cor-bege`     | `#E8DDCF` | Fundos de seção alternados, cards              |
-| `--cor-oliva`    | `#6C7050` | Botões primários, seções de destaque, CTA      |
-| `--cor-salvia`   | `#A7AE8C` | Detalhes, hovers, traços decorativos           |
-| `--cor-marrom`   | `#3D352D` | Texto principal, títulos                       |
+| `--cor-creme`    | `#F6F3EF` | Fundo principal                                |
+| `--cor-bege`     | `#E7DFCF` | Fundos de seção alternados, cards              |
+| `--cor-oliva`    | `#6B6F4E` | Botões primários, seções de destaque, CTA      |
+| `--cor-salvia`   | `#A7AD8A` | Detalhes, hovers, traços decorativos           |
+| `--cor-marrom`   | `#3A352F` | Texto principal, títulos                       |
 | `--cor-cinza`    | `#D9D6CF` | Bordas, divisórias, linhas finas               |
 
-Texto creme sobre oliva nas seções escuras. Garantir contraste AA em todas as combinações.
+Paleta oficial do **brand board** da profissional. Texto creme sobre oliva nas seções
+escuras. Garantir contraste AA em todas as combinações.
+
+### Logo (oficial)
+
+A marca oficial é o monograma "g" em arco com raminho botânico + wordmark
+"GIOVANNA GIMENEZ · PSICANÁLISE CLÍNICA" (em oliva). Assets em `assets/logo/`
+(`monograma.png`, `lockup.png`/`.webp`) e ícones derivados em `assets/icons/`.
+Tagline oficial: *"escuta que acolhe, presença que transforma."*
 
 ### Tipografia
 
