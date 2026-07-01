@@ -44,8 +44,16 @@ description: "Task list — Refinamento visual e de conteúdo"
       (verificado via preview: SVGs 200/`image/svg+xml`, 640×800 e 480×640, sem 404,
       sem scroll horizontal, 0 erros de console; rasters de hero/sobre removidos)
 
-## Phase 6: US4 — Microcopy (P3) — PENDENTE
-- [ ] T013 [US4] Revisão leve de subtítulos/CTAs/apoios preservando marcadores editáveis
+## Phase 6: US4 — Microcopy (P3) 🎯 ✅
+> **Escopo (aprovado pela análise):** ajustar apenas selos/subtítulos de seção, rótulos
+> de CTA e frases de apoio (`.apoio`). **Fora do escopo:** `<h1>` do hero, dados de
+> contato/CRP e meta/SEO (title/description/OG/Twitter/JSON-LD intocados). Guardrails:
+> preservar todos os marcadores editáveis; respeitar a restrição ética (sem promessa de
+> cura/diagnóstico); manter AA, 1 `<h1>`, 0 erros de console, sem scroll horizontal.
+- [X] T013 [US4] Revisão leve de subtítulos/CTAs/apoios preservando marcadores editáveis
+      (4 ajustes na home: CTA "Sobre" → "Falar comigo"; h2 Áreas; h2 FAQ; apoio Contato.
+      Verificado via preview: marcadores 16/16 idênticos, 1 `<h1>`, 0 erros, sem scroll
+      horizontal, SEO/`title` intocados)
 
 ## Phase 7: QA
 - [X] T014 Responsivo: sem scroll horizontal a 320px e desktop (verificado via preview)
