@@ -125,11 +125,25 @@
         <h1>{{TITULO}}</h1>
         <p class="artigo__meta"><time datetime="{{AAAA-MM-DD}}">{{DATA_POR_EXTENSO}}</time> · {{X}} min de leitura</p>
 
+        <!-- (Opcional) FOTO DE CAPA do post. Coloque a imagem em assets/images/
+             e descomente o bloco abaixo (ajuste o nome do arquivo e o alt):
+        <img class="artigo__capa" src="../../assets/images/reflexao-capa.jpg"
+             width="1200" height="675" alt="Descreva a foto de capa">
+        -->
+
         <div class="artigo__corpo">
           <p>{{PRIMEIRO_PARAGRAFO}}</p>
           <h2>{{SUBTITULO}}</h2>
           <p>{{PARAGRAFO}}</p>
-          <!-- Acrescente quantos <p> e <h2> precisar. -->
+
+          <!-- (Opcional) FOTO no meio do texto. Descomente e ajuste:
+          <figure>
+            <img src="../../assets/images/reflexao-exemplo.jpg" width="1000" height="667"
+                 loading="lazy" alt="Descreva a imagem">
+            <figcaption>Legenda da imagem (opcional).</figcaption>
+          </figure>
+          -->
+          <!-- Acrescente quantos <p>, <h2> e <figure> precisar. -->
           <p><em>Este texto tem caráter reflexivo e não substitui um acompanhamento individual.</em></p>
         </div>
 
