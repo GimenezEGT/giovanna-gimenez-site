@@ -9,17 +9,17 @@
 
 /* 1. TOKENS ------------------------------------------------------------- */
 :root {
-  /* Paleta (ver specs/constitution.md) */
-  --cor-creme:  #F6F2EB;
-  --cor-bege:   #E8DDCF;
-  --cor-oliva:  #6C7050;
-  --cor-salvia: #A7AE8C;
-  --cor-marrom: #3D352D;
+  /* Paleta oficial (brand board — ver specs/constitution.md) */
+  --cor-creme:  #F6F3EF;
+  --cor-bege:   #E7DFCF;
+  --cor-oliva:  #6B6F4E;
+  --cor-salvia: #A7AD8A;
+  --cor-marrom: #3A352F;
   --cor-cinza:  #D9D6CF;
 
   /* Variantes utilitárias derivadas */
-  --oliva-escuro: #565b40;          /* hover do botão primário (contraste AA) */
-  --marrom-suave: #5a5046;          /* texto secundário */
+  --oliva-escuro: #545839;          /* hover do botão primário (contraste AA) */
+  --marrom-suave: #575049;          /* texto secundário */
 
   /* Tipografia */
   --fonte-titulo: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -161,14 +161,29 @@ a:hover { color: var(--cor-oliva); }
   min-height: 4.5rem;
 }
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--cor-marrom);
+}
+.logo__marca { height: 2.5rem; width: auto; }
+.logo__texto {
+  display: flex;
+  flex-direction: column;
   font-family: var(--fonte-titulo);
   font-size: var(--fs-md);
   font-weight: 600;
-  text-decoration: none;
-  color: var(--cor-marrom);
-  line-height: 1.1;
+  line-height: 1.05;
 }
-.logo span { color: var(--cor-oliva); }
+.logo__sub {
+  font-family: var(--fonte-corpo);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor-oliva);
+}
 
 .nav { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2rem); }
 .nav__lista { display: flex; align-items: center; gap: clamp(0.9rem, 1.6vw, 1.8rem); }
@@ -377,6 +392,7 @@ a:hover { color: var(--cor-oliva); }
   gap: 2rem;
 }
 .rodape__logo { font-family: var(--fonte-titulo); font-size: var(--fs-md); }
+.rodape__tagline { font-family: var(--fonte-titulo); font-style: italic; color: var(--cor-creme); margin-top: 0.75rem; opacity: 0.92; }
 .rodape__grid h3 { color: var(--cor-salvia); font-family: var(--fonte-corpo); font-size: var(--fs-xs); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
 .rodape__nav { display: grid; gap: 0.5rem; font-size: var(--fs-sm); }
 .rodape__frase {

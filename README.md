@@ -121,8 +121,14 @@ substitua os arquivos placeholder **mantendo os mesmos nomes** (`giovanna-hero.j
 ## 🎨 Identidade visual
 
 Cores e fontes ficam centralizadas no topo de `assets/css/styles.css` (bloco `:root`).
-Paleta: creme `#F6F2EB`, bege `#E8DDCF`, oliva `#6C7050`, sálvia `#A7AE8C`,
-marrom `#3D352D`, cinza `#D9D6CF`. Fontes: **Playfair Display** (títulos) e **Lato** (texto).
+Paleta oficial (brand board): creme `#F6F3EF`, bege `#E7DFCF`, oliva `#6B6F4E`,
+sálvia `#A7AD8A`, marrom `#3A352F`, cinza `#D9D6CF`. Fontes: **Playfair Display** (títulos)
+e **Lato** (texto).
+
+**Logo oficial:** o monograma "g" e o lockup completo ficam em `assets/logo/`
+(`monograma.png` no cabeçalho; `lockup.png`/`.webp` para usos maiores). Os favicons/ícones
+em `assets/icons/` são derivados do monograma. Tagline: *"escuta que acolhe, presença que
+transforma."*
 
 > ⚡ **Nota de performance (home):** por velocidade, o `index.html` tem um pequeno bloco de
 > **CSS crítico embutido** no `<head>` (um subconjunto de `styles.css` para o topo da página),

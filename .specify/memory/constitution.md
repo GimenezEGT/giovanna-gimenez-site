@@ -37,8 +37,10 @@ placeholders claramente identificados, com instruções de troca no README.
 
 ## Identidade Visual (restrição fixa)
 
-Paleta (CSS custom properties): creme `#F6F2EB`, bege `#E8DDCF`, oliva `#6C7050`,
-sálvia `#A7AE8C`, marrom `#3D352D`, cinza `#D9D6CF`. Tipografia: Playfair Display
+Paleta oficial (brand board): creme `#F6F3EF`, bege `#E7DFCF`, oliva `#6B6F4E`,
+sálvia `#A7AD8A`, marrom `#3A352F`, cinza `#D9D6CF`. Logo oficial: monograma "g" com
+raminho + wordmark (assets em `assets/logo/`); tagline "escuta que acolhe, presença que
+transforma.". Tipografia: Playfair Display
 (títulos) + Lato (corpo), escala fluida com `clamp()`. Estética de atmosfera (luz natural,
 tons terrosos, plantas, madeira, cerâmica), nunca corporativa. Tom: acolhimento,
 serenidade, profissionalismo. Restrição ética de conteúdo: não prometer cura, não dar
