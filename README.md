@@ -116,6 +116,12 @@ Cores e fontes ficam centralizadas no topo de `assets/css/styles.css` (bloco `:r
 Paleta: creme `#F6F2EB`, bege `#E8DDCF`, oliva `#6C7050`, sálvia `#A7AE8C`,
 marrom `#3D352D`, cinza `#D9D6CF`. Fontes: **Playfair Display** (títulos) e **Lato** (texto).
 
+> ⚡ **Nota de performance (home):** por velocidade, o `index.html` tem um pequeno bloco de
+> **CSS crítico embutido** no `<head>` (um subconjunto de `styles.css` para o topo da página),
+> e a folha completa carrega de forma assíncrona. Se você mudar **cores, cabeçalho ou o hero**
+> em `styles.css`, ajuste também esse bloco embutido no `index.html` (há um comentário no local).
+> As demais páginas não têm esse bloco — nelas basta editar o `styles.css`.
+
 ---
 
 ## 💻 Pré-visualizar localmente
