@@ -415,6 +415,48 @@ a:hover { color: var(--cor-oliva); }
 .artigo__cta h2 { color: var(--cor-marrom); margin-bottom: 0.5rem; }
 .artigo__cta p { margin: 0 auto 1.25rem; }
 
+/* Fotos nos posts do Caderno Clínico (capa, imagens no meio do texto e miniatura no card) */
+.artigo__capa {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  margin-bottom: 2rem;
+}
+.artigo__corpo figure { margin: 2rem 0; }
+.artigo__corpo figure img { width: 100%; border-radius: var(--raio); }
+.artigo__corpo figcaption {
+  font-size: var(--fs-xs);
+  color: var(--marrom-suave);
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.6rem;
+}
+.post-card__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--raio-sm);
+  margin-bottom: 0.25rem;
+}
+
+/* Sobre mim — subtítulo (papel) e rótulo "Minha formação" */
+.sobre__papel {
+  color: var(--cor-oliva);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  margin-bottom: 1.1rem;
+}
+.formacao__titulo {
+  font-family: var(--fonte-corpo);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor-oliva);
+  margin: 1.6rem 0 0.6rem;
+}
+
 /* 12. RESPONSIVO ------------------------------------------------------- */
 @media (max-width: 920px) {
   .hero__grid { grid-template-columns: 1fr; }

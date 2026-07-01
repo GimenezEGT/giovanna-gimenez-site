@@ -99,6 +99,14 @@ Os dados são **placeholders**. Faça "localizar e substituir" em **todos** os a
 4. (Opcional) Destaque-o na **home**: em `index.html`, seção "Reflexões", há 3 cards.
 5. Adicione a URL do novo post em `sitemap.xml` (copie um bloco `<url>...</url>`).
 
+**Fotos no post (Caderno Clínico):** o template já traz exemplos comentados. Coloque a
+imagem em `assets/images/` e descomente:
+- **Capa** do post: bloco `<img class="artigo__capa" ...>` (logo após a data).
+- **Foto no meio do texto**: bloco `<figure>…<figcaption>` dentro de `artigo__corpo`.
+- **Miniatura no card** da listagem (`reflexoes/index.html`): `<img class="post-card__thumb" ...>`
+  como primeiro item do `<article class="post-card">`.
+Sempre inclua `alt` descritivo e, de preferência, `width`/`height` (evita "pulo" no layout).
+
 ---
 
 ## 🖼️ Como trocar as fotos
