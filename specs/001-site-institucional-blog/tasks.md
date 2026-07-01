@@ -87,7 +87,12 @@ description: "Task list — Site institucional + blog Reflexões"
       ✅ Gerados via Pillow; menores que os JPG; `<picture>` resolve sem 404.
 - [B] T035 Substituir fotos placeholder pelas **fotos reais** + WebP (cliente fornece)
 - [B] T036 Substituir **placeholders** de URL canônica e dados de contato/CRP (go-live)
-- [ ] T037 Rodar **Lighthouse** ≥ 95 nas 4 categorias **após deploy** (SC-003) e registrar
+- [~] T037 Rodar **Lighthouse** ≥ 95 nas 4 categorias **após deploy** (SC-003) e registrar
+      ↳ **Preliminar local ✅** (home): 99 / 100 / 100 / 100 — registrado em
+        [lighthouse.md](./lighthouse.md). Corrigidos 2 defeitos de a11y (contraste na
+        seção oliva; ordem de headings no rodapé) que travavam a meta.
+      ↳ **Pós-deploy (oficial) pendente**: bloqueado até habilitar GitHub Pages
+        (Settings → Pages → Source = "GitHub Actions"); o site ainda responde 404.
 
 ---
 

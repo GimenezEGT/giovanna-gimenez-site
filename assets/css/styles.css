@@ -108,10 +108,10 @@ a:hover { color: var(--cor-oliva); }
   color: var(--cor-oliva);
   margin-bottom: 0.9rem;
 }
-.secao--oliva .selo { color: var(--cor-salvia); }
+.secao--oliva .selo { color: var(--cor-creme); }
 
 .apoio { font-size: var(--fs-md); color: var(--marrom-suave); }
-.secao--oliva .apoio { color: rgba(246, 242, 235, 0.9); }
+.secao--oliva .apoio { color: var(--cor-creme); }
 
 .centro { text-align: center; }
 .centro p { margin-inline: auto; }
@@ -377,7 +377,7 @@ a:hover { color: var(--cor-oliva); }
   gap: 2rem;
 }
 .rodape__logo { font-family: var(--fonte-titulo); font-size: var(--fs-md); }
-.rodape__grid h4 { color: var(--cor-salvia); font-family: var(--fonte-corpo); font-size: var(--fs-xs); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+.rodape__grid h3 { color: var(--cor-salvia); font-family: var(--fonte-corpo); font-size: var(--fs-xs); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
 .rodape__nav { display: grid; gap: 0.5rem; font-size: var(--fs-sm); }
 .rodape__frase {
   font-family: var(--fonte-titulo);
