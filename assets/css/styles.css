@@ -3,7 +3,8 @@
    Folha de estilo única. Organização:
    1. Tokens (:root)  2. Reset  3. Base/tipografia  4. Utilitários
    5. Header/Nav  6. Botões  7. Hero  8. Seções da home  9. FAQ
-   10. Footer  11. Blog  12. Responsivo  13. prefers-reduced-motion
+   10. Footer  11. Blog  12. Responsivo  13. Revelação ao rolar
+   14. prefers-reduced-motion
    ========================================================================= */
 
 /* 1. TOKENS ------------------------------------------------------------- */
@@ -515,7 +516,26 @@ a:hover { color: var(--cor-oliva); }
 .btn--primario:hover { box-shadow: 0 10px 22px -12px rgba(108, 112, 80, 0.85); }
 .btn--claro:hover { box-shadow: 0 10px 22px -14px rgba(0, 0, 0, 0.45); }
 
-/* 13. PREFERS-REDUCED-MOTION ------------------------------------------ */
+/* 13. REVELAÇÃO AO ROLAR (US2) ---------------------------------------- */
+/* Estado padrão = VISÍVEL: sem JS (ou sob reduced-motion) nada fica oculto.
+   O efeito só é armado quando o main.js adiciona `.js-reveal` em <html>,
+   e apenas quando o usuário não pediu menos movimento. */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 440ms ease, transform 440ms ease;
+  will-change: opacity, transform;
+}
+.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+/* Escalonamento sutil entre itens de um mesmo grupo (cards/áreas). */
+.js-reveal .reveal--2 { transition-delay: 80ms; }
+.js-reveal .reveal--3 { transition-delay: 160ms; }
+.js-reveal .reveal--4 { transition-delay: 240ms; }
+
+/* 14. PREFERS-REDUCED-MOTION ------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -524,4 +544,6 @@ a:hover { color: var(--cor-oliva); }
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+  /* Segurança extra: se o efeito estiver armado, nada permanece invisível. */
+  .js-reveal .reveal { opacity: 1 !important; transform: none !important; }
 }

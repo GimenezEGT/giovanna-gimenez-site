@@ -6,16 +6,16 @@ description: "Task list — Refinamento visual e de conteúdo"
 
 **Input**: `specs/002-refinamento-visual-conteudo/` · Legenda: `[ ]` pendente · `[X]` feita
 
-> **Escopo aprovado nesta rodada: somente US1 (estética estática).** US2 (movimento),
-> US3 (ilustrações) e US4 (microcopy) ficam pendentes para uma próxima rodada.
+> **Escopo aprovado até agora: US1 (estética estática, entregue) + US2 (movimento sutil,
+> esta rodada).** US3 (ilustrações) e US4 (microcopy) ficam pendentes para uma próxima rodada.
 
 ## Phase 1: Setup
 - [X] T001 Verificar baseline (sem scroll horizontal, AA, 1 `<h1>`/página) antes de mexer
 
-## Phase 2: Foundational (CSS/JS base do refino) — adiada (US2)
-- [ ] T002 CSS: utilitário `.reveal` (estado padrão **visível**; variação animada) +
+## Phase 2: Foundational (CSS/JS base do refino) — US2
+- [X] T002 CSS: utilitário `.reveal` (estado padrão **visível**; variação animada) +
       bloco `prefers-reduced-motion` desligando tudo
-- [ ] T003 JS (`main.js`): IntersectionObserver que adiciona `.is-visible` aos `.reveal`
+- [X] T003 JS (`main.js`): IntersectionObserver que adiciona `.is-visible` aos `.reveal`
       (no-op se reduced-motion; conteúdo visível sem JS)
 
 ## Phase 3: US1 — Estética editorial (P1) 🎯 ✅
@@ -24,9 +24,11 @@ description: "Task list — Refinamento visual e de conteúdo"
 - [X] T006 [US1] Hero: halo suave atrás da imagem (`.hero::before`, contido, sem overflow)
 - [X] T007 [US1] Hover/foco refinados em `.card`, `.area` e botões (sombra/elevação sutil)
 
-## Phase 4: US2 — Movimento sutil (P2) — PENDENTE
-- [ ] T008 [US2] Aplicar `.reveal` às seções/cards da home (e listagem do blog)
-- [ ] T009 [US2] Verificar: reduced-motion = sem animação; sem JS = tudo visível
+## Phase 4: US2 — Movimento sutil (P2) 🎯 ✅
+- [X] T008 [US2] Aplicar `.reveal` às seções/cards da home (e listagem do blog)
+- [X] T009 [US2] Verificar: reduced-motion = sem animação; sem JS = tudo visível
+      (verificado via preview: sem `.js-reveal` todos os 14 `.reveal` têm opacity:1;
+      com JS, 14/14 revelam ao rolar; 0 erros de console)
 
 ## Phase 5: US3 — Ilustrações-placeholder (P3) — PENDENTE
 - [ ] T010 [US3] Ilustração SVG "hero" (janela/luz/planta) substituindo o bloco chapado

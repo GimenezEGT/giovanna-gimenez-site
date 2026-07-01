@@ -61,4 +61,22 @@
   /* ---- Ano dinâmico ---- */
   var anoEl = document.querySelector("[data-ano]");
   if (anoEl) { anoEl.textContent = String(new Date().getFullYear()); }
+
+  /* ---- Revelação ao rolar (progressiva, reduced-motion-safe) ----
+     Sem JS os elementos já são visíveis (CSS). Só armamos o efeito quando há
+     suporte a IntersectionObserver e o usuário NÃO pediu menos movimento. */
+  var reveals = document.querySelectorAll(".reveal");
+  var prefereReduzido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reveals.length && !prefereReduzido && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("js-reveal");
+    var observador = new IntersectionObserver(function (entradas, obs) {
+      entradas.forEach(function (entrada) {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add("is-visible");
+          obs.unobserve(entrada.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
+    reveals.forEach(function (el) { observador.observe(el); });
+  }
 })();

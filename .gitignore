@@ -1,6 +1,9 @@
 # Configurações locais do Claude Code (podem conter credenciais/preferências da máquina)
 .claude/settings.local.json
 
+# Artefatos de tooling do oh-my-claudecode (estado de sessão local)
+.omc/
+
 # Sistema
 Thumbs.db
 .DS_Store
