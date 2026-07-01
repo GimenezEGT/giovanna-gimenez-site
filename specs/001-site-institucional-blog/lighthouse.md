@@ -32,8 +32,10 @@ npx lighthouse https://psicanalisegiovannagimenez.netlify.app/ \
 | Data | Ambiente | URL | Perf | A11y | Best Pract. | SEO | Observações |
 |------|----------|-----|:----:|:----:|:-----------:|:---:|-------------|
 | 2026-06-30 | Local (preliminar) | `localhost:8754/index.html` | **99** | **100** | **100** | **100** | LH 13.4.0. FCP/LCP/SI ≈ 1,6 s · TBT 0 ms · CLS 0,023 |
-| 2026-07-01 | Pós-deploy (oficial #1) | Netlify | **90** | **100** | **100** | **100** | LH 13.4.0 (mobile/throttle 4G). FCP/LCP ≈ 2,9 s · TBT 0 ms · CLS 0. **Perf < 95:** render-blocking do Google Fonts (~2.090 ms) |
-| _pendente_ | Pós-deploy (oficial #2) | Netlify | — | — | — | — | Re-medir após deploy da correção de fontes assíncronas |
+| 2026-07-01 | Pós-deploy (CLI local→remoto) | Netlify | **90→88** | **100** | **100** | **100** | LH 13.4.0 mobile. Ruidoso: latência real empilhada sob o throttle. Só serviu p/ diagnóstico |
+| 2026-07-01 | **PSI (autoritativo) — mobile** | Netlify | **91** 🟢 | **100** | **100** | **100** | Após fontes assíncronas. Render-blocking restante: `styles.css` |
+| 2026-07-01 | **PSI (autoritativo) — desktop** | Netlify | **99** 🟢 | **100** | **100** | **100** | — |
+| _pendente_ | PSI mobile (re-medir) | Netlify | — | — | — | — | Após deploy do **CSS crítico inline** na home (espera-se ≥ 95) |
 
 ## Correções aplicadas para atingir a meta
 
@@ -63,5 +65,19 @@ Também corrigido de passagem: o `404.html` referenciava o CSS por uma URL-place
 (`SEU-USUARIO.github.io/SEU-REPO/...`), deixando a página 404 **sem estilo** em produção →
 trocado por caminho root-absoluto `/assets/css/styles.css`.
 
-> Falta a rodada oficial #2 (re-medir em produção após o deploy da correção de fontes) para
-> confirmar Performance ≥ 95 e fechar a T037.
+### 3ª rodada — PSI autoritativo e CSS crítico
+
+Medição oficial no **PageSpeed Insights** (infra do Google, sem o ruído de latência do CLI
+local): **mobile 91 / desktop 99** — ambos verdes, mas o mobile 4 pts abaixo do alvo ≥ 95.
+Diagnóstico: único recurso render-blocking restante = `styles.css`; FCP = LCP (o conteúdo
+pinta junto da primeira pintura, atrasada pela busca do CSS). Correção:
+
+4. **CSS crítico inline (home):** um subconjunto above-the-fold de `styles.css` (tokens,
+   reset, base, header/nav, botões, hero + breakpoints mobile) foi embutido em `<style>` no
+   `<head>` do `index.html`, e a folha completa passou a carregar de forma assíncrona
+   (`media="print" onload`) com fallback `<noscript>`. Remove o último render-blocking do
+   caminho crítico. Só na home; nota de manutenção adicionada ao `README.md` e comentário no
+   próprio `index.html` (o bloco embutido deve espelhar mudanças de tokens/header/hero).
+
+> Falta a re-medição no PSI (mobile) após o deploy do CSS crítico para confirmar
+> Performance ≥ 95 e fechar a T037.
