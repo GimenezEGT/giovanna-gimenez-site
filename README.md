@@ -1,30 +1,39 @@
 # Giovanna Gimenez · Psicanálise Clínica — Site
 
-Site institucional estático (HTML + CSS + JavaScript vanilla), sem build, pronto para
-**GitHub Pages**. Inclui página única com âncoras e uma seção de blog ("Reflexões").
+Site institucional estático (HTML + CSS + JavaScript vanilla) publicado no **GitHub Pages**.
+A **home** é HTML estático; o **blog ("Reflexões")** é gerado pelo **Eleventy** a partir de
+Markdown, e pode ser alimentado por um **painel visual (Sveltia CMS)** — ver abaixo.
 
 - **Acessível** (WCAG 2.1 AA), **responsivo** (320px → 1440px+) e **otimizado para SEO**.
-- **Sem frameworks** e **sem etapa de build** — os arquivos são servidos como estão.
+- **Blog com painel:** posts em Markdown, publicados por um CMS com login e "Publicar".
+
+---
+
+## 📝 Painel do blog (para quem escreve, sem código)
+
+Acesse **`…/admin/`**, faça login e crie/edite/exclua posts com fotos, pela interface.
+Ao publicar, o GitHub Actions gera o site e publica em ~1–2 min.
+**Configuração inicial e uso passo a passo:** [`specs/003-cms-blog/quickstart.md`](specs/003-cms-blog/quickstart.md).
 
 ---
 
 ## 📁 Estrutura
 
 ```
-index.html                  → Página inicial (todas as seções)
-404.html                    → Página de erro amigável
-reflexoes/
-  index.html                → Listagem do blog
-  _template-post.html       → Modelo para criar novos posts (não publicado)
-  posts/*.html              → Os textos publicados
-assets/
-  css/styles.css            → Todo o visual (cores, tipografia, layout)
-  js/main.js                → Menu mobile, cabeçalho ao rolar, ano do rodapé
-  images/  (+ README.md)    → Fotos (placeholders) e guia de fotos
-  icons/                    → Ícones e favicons
-specs/                      → Documentos do projeto (constitution, specification, plan, tasks)
-sitemap.xml, robots.txt     → SEO
-.github/workflows/deploy.yml→ Publicação automática no GitHub Pages
+src/                          → FONTE do site (Eleventy gera _site/)
+  index.html                  → Página inicial (estática, todas as seções)
+  404.html
+  _includes/base.njk, post.njk→ Modelos (head/header/rodapé e layout do artigo)
+  reflexoes/
+    index.njk                 → Listagem do blog (gerada da coleção de posts)
+    posts/*.md                → Os textos, em Markdown (editados pelo painel)
+  sitemap.njk                 → Sitemap (gerado)
+  assets/                     → css, js, images (+ images/posts = uploads do painel), icons, logo
+  admin/                      → Painel Sveltia CMS (index.html + config.yml)
+.eleventy.js, package.json     → Configuração do gerador (build)
+.github/workflows/deploy.yml   → Build (Eleventy) + publicação no GitHub Pages
+specs/                         → Documentos do projeto (specs/003-cms-blog = o painel)
+_site/                         → Saída gerada (não versionada)
 ```
 
 ---
@@ -91,21 +100,17 @@ Os dados são **placeholders**. Faça "localizar e substituir" em **todos** os a
 
 ## 📝 Como adicionar um novo post (Reflexões)
 
-1. Copie `reflexoes/_template-post.html` para
-   `reflexoes/posts/titulo-do-post.html` (nome **sem acentos**, **sem espaços**, com hífens).
-2. Substitua os campos `{{ ... }}` (título, descrição, data, conteúdo).
-3. Adicione o post na **listagem**: em `reflexoes/index.html`, copie um bloco
-   `<article class="post-card">...</article>` e ajuste título, resumo, data e link.
-4. (Opcional) Destaque-o na **home**: em `index.html`, seção "Reflexões", há 3 cards.
-5. Adicione a URL do novo post em `sitemap.xml` (copie um bloco `<url>...</url>`).
+**Jeito recomendado (sem código): pelo painel.** Acesse `…/admin/`, faça login, clique em
+**Novo**, preencha título/resumo/conteúdo, anexe fotos e **Publique**. A listagem, o sitemap
+e a página do post são gerados automaticamente. Fotos vão para `src/assets/images/posts/`.
 
-**Fotos no post (Caderno Clínico):** o template já traz exemplos comentados. Coloque a
-imagem em `assets/images/` e descomente:
-- **Capa** do post: bloco `<img class="artigo__capa" ...>` (logo após a data).
-- **Foto no meio do texto**: bloco `<figure>…<figcaption>` dentro de `artigo__corpo`.
-- **Miniatura no card** da listagem (`reflexoes/index.html`): `<img class="post-card__thumb" ...>`
-  como primeiro item do `<article class="post-card">`.
-Sempre inclua `alt` descritivo e, de preferência, `width`/`height` (evita "pulo" no layout).
+**Alternativa técnica (Markdown):** crie um arquivo em `src/reflexoes/posts/<slug>.md`
+com o front matter (`title`, `date`, `description`, `resumo`, `tempoLeitura`, opcional
+`cover`) e o texto em Markdown. O nome do arquivo vira a URL (`/reflexoes/posts/<slug>.html`).
+Não é preciso mexer na listagem nem no sitemap — o Eleventy gera tudo a partir da pasta.
+
+> As fotos no corpo do texto são inseridas pelo próprio editor do painel; a **capa** é o
+> campo "Foto de capa". Sempre preencha a descrição da imagem (acessibilidade).
 
 ---
 
@@ -140,13 +145,12 @@ transforma."*
 
 ## 💻 Pré-visualizar localmente
 
-Como são arquivos estáticos, você pode abrir o `index.html` no navegador. Para um
-ambiente mais fiel (caminhos relativos), rode um servidor local:
+O blog é gerado pelo Eleventy, então o preview local usa Node:
 
 ```bash
-# Python 3
-python -m http.server 8000
-# depois acesse http://localhost:8000
+npm install       # só na primeira vez
+npm run dev       # servidor em http://localhost:8080 (recarrega ao salvar)
+# ou: npm run build  → gera a pasta _site/
 ```
 
 ---
