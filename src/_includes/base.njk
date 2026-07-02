@@ -1,34 +1,22 @@
 <!doctype html>
-<!--
-  ===========================================================================
-  MODELO DE POST (não publicado / não linkado).
-  Para criar um novo texto:
-    1. Copie este arquivo para  reflexoes/posts/seu-titulo-em-minusculas.html
-       (use hífens, sem acentos e sem espaços no nome do arquivo).
-    2. Substitua TODOS os campos marcados com {{ ... }}.
-    3. Adicione um card na listagem em  reflexoes/index.html  (copie um
-       <article class="post-card">) e, se quiser, na home (seção Reflexões).
-    4. Acrescente a nova URL em  sitemap.xml.
-  ===========================================================================
--->
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{TITULO}} — Reflexões · Giovanna Gimenez</title>
-  <meta name="description" content="{{DESCRICAO_ATE_160_CARACTERES}}">
-  <link rel="canonical" href="https://gimenezegt.github.io/giovanna-gimenez-site/reflexoes/posts/{{ARQUIVO}}.html">
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="{{TITULO}}">
-  <meta property="og:description" content="{{RESUMO_CURTO}}">
-  <meta property="og:url" content="https://gimenezegt.github.io/giovanna-gimenez-site/reflexoes/posts/{{ARQUIVO}}.html">
-  <meta property="og:image" content="https://gimenezegt.github.io/giovanna-gimenez-site/assets/images/og-image.jpg">
+  <meta property="og:title" content="{{ ogTitle or title }}">
+  <meta property="og:description" content="{{ ogDescription or description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}/assets/images/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="../../assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="{{ root }}assets/icons/favicon-32.png" sizes="32x32" type="image/png">
   <meta name="theme-color" content="#6B6F4E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,23 +66,9 @@
     @media (max-width:920px){.hero__grid{grid-template-columns:1fr}.hero__foto{max-width:420px}}
     @media (max-width:760px){.nav__toggle{display:inline-flex}.nav__lista{position:fixed;inset:4.5rem 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--cor-creme);border-bottom:var(--borda);box-shadow:var(--sombra);padding:0.5rem 1.5rem 1.5rem;transform:translateY(-120%);transition:transform 260ms ease}.nav[data-aberto="true"] .nav__lista{transform:translateY(0)}.nav__lista li{width:100%;border-bottom:var(--borda)}.nav__lista li:last-child{border-bottom:0}.nav__link{display:block;padding:0.9rem 0}.nav .btn{margin-top:1rem}}
   </style>
-  <link rel="stylesheet" href="../../assets/css/styles.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="../../assets/css/styles.css"></noscript>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "{{TITULO}}",
-    "datePublished": "{{AAAA-MM-DD}}",
-    "dateModified": "{{AAAA-MM-DD}}",
-    "inLanguage": "pt-BR",
-    "author": { "@type": "Person", "name": "Giovanna Gimenez" },
-    "publisher": { "@type": "Person", "name": "Giovanna Gimenez" },
-    "image": "https://gimenezegt.github.io/giovanna-gimenez-site/assets/images/og-image.jpg",
-    "mainEntityOfPage": "https://gimenezegt.github.io/giovanna-gimenez-site/reflexoes/posts/{{ARQUIVO}}.html"
-  }
-  </script>
+  <link rel="stylesheet" href="{{ root }}assets/css/styles.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="{{ root }}assets/css/styles.css"></noscript>
+  {% if jsonld %}{{ jsonld | safe }}{% endif %}
 </head>
 
 <body>
@@ -102,8 +76,8 @@
 
   <header class="cabecalho" data-cabecalho>
     <div class="container cabecalho__inner">
-      <a class="logo" href="../../index.html" aria-label="Giovanna Gimenez · Psicanálise Clínica">
-        <img class="logo__marca" src="../../assets/logo/monograma.png" width="149" height="171" alt="">
+      <a class="logo" href="{{ root }}index.html" aria-label="Giovanna Gimenez · Psicanálise Clínica">
+        <img class="logo__marca" src="{{ root }}assets/logo/monograma.png" width="149" height="171" alt="">
         <span class="logo__texto">Giovanna Gimenez<span class="logo__sub">Psicanálise Clínica</span></span>
       </a>
       <nav class="nav" data-nav aria-label="Navegação principal">
@@ -111,10 +85,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
         </button>
         <ul class="nav__lista" id="menu">
-          <li><a class="nav__link" href="../../index.html#inicio">Início</a></li>
-          <li><a class="nav__link" href="../../index.html#sobre">Sobre</a></li>
-          <li><a class="nav__link" href="../index.html">Reflexões</a></li>
-          <li><a class="nav__link" href="../../index.html#contato">Contato</a></li>
+          <li><a class="nav__link" href="{{ root }}index.html#inicio">Início</a></li>
+          <li><a class="nav__link" href="{{ root }}index.html#sobre">Sobre</a></li>
+          <li><a class="nav__link" href="{{ root }}reflexoes/index.html">Reflexões</a></li>
+          <li><a class="nav__link" href="{{ root }}index.html#contato">Contato</a></li>
           <li><a class="btn btn--primario" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agendar</a></li>
         </ul>
       </nav>
@@ -122,41 +96,7 @@
   </header>
 
   <main id="conteudo">
-    <article class="artigo">
-      <div class="artigo__wrap">
-        <a class="artigo__voltar" href="../index.html">← Voltar para Reflexões</a>
-        <h1>{{TITULO}}</h1>
-        <p class="artigo__meta"><time datetime="{{AAAA-MM-DD}}">{{DATA_POR_EXTENSO}}</time> · {{X}} min de leitura</p>
-
-        <!-- (Opcional) FOTO DE CAPA do post. Coloque a imagem em assets/images/
-             e descomente o bloco abaixo (ajuste o nome do arquivo e o alt):
-        <img class="artigo__capa" src="../../assets/images/reflexao-capa.jpg"
-             width="1200" height="675" alt="Descreva a foto de capa">
-        -->
-
-        <div class="artigo__corpo">
-          <p>{{PRIMEIRO_PARAGRAFO}}</p>
-          <h2>{{SUBTITULO}}</h2>
-          <p>{{PARAGRAFO}}</p>
-
-          <!-- (Opcional) FOTO no meio do texto. Descomente e ajuste:
-          <figure>
-            <img src="../../assets/images/reflexao-exemplo.jpg" width="1000" height="667"
-                 loading="lazy" alt="Descreva a imagem">
-            <figcaption>Legenda da imagem (opcional).</figcaption>
-          </figure>
-          -->
-          <!-- Acrescente quantos <p>, <h2> e <figure> precisar. -->
-          <p><em>Este texto tem caráter reflexivo e não substitui um acompanhamento individual.</em></p>
-        </div>
-
-        <div class="artigo__cta">
-          <h2>Quer conversar sobre isso?</h2>
-          <p>Se algo aqui ressoou com o que você tem vivido, podemos conversar.</p>
-          <a class="btn btn--primario" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agendar sua primeira conversa</a>
-        </div>
-      </div>
-    </article>
+{{ content | safe }}
   </main>
 
   <footer class="rodape">
@@ -166,6 +106,6 @@
     </div>
   </footer>
 
-  <script src="../../assets/js/main.js" defer></script>
+  <script src="{{ root }}assets/js/main.js" defer></script>
 </body>
 </html>

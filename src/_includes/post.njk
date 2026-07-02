@@ -1,0 +1,22 @@
+---
+layout: base.njk
+---
+<article class="artigo">
+  <div class="artigo__wrap">
+    <a class="artigo__voltar" href="{{ root }}reflexoes/index.html">← Voltar para Reflexões</a>
+    <h1>{{ title }}</h1>
+    <p class="artigo__meta"><time datetime="{{ page.date | dataIso }}">{{ page.date | dataExtenso }}</time>{% if tempoLeitura %} · {{ tempoLeitura }} de leitura{% endif %}</p>
+    {% if cover %}
+    <img class="artigo__capa" src="{{ cover }}" alt="{{ coverAlt or title }}">
+    {% endif %}
+    <div class="artigo__corpo">
+{{ content | safe }}
+    </div>
+
+    <div class="artigo__cta">
+      <h2>Quer conversar sobre isso?</h2>
+      <p>Se algo aqui ressoou com o que você tem vivido, podemos conversar.</p>
+      <a class="btn btn--primario" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agendar sua primeira conversa</a>
+    </div>
+  </div>
+</article>

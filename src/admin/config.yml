@@ -1,0 +1,38 @@
+# Configuração do painel (Sveltia CMS — compatível com Decap).
+backend:
+  name: github
+  repo: GimenezEGT/giovanna-gimenez-site
+  branch: main
+  # URL do handler de OAuth (Cloudflare Worker sveltia-cms-auth). Ver specs/003-cms-blog/quickstart.md.
+  base_url: https://SEU-WORKER-OAUTH.workers.dev
+
+# Onde as imagens enviadas são gravadas (caminho no repositório)
+media_folder: "src/assets/images/posts"
+# Caminho usado nas páginas publicadas (subpath do GitHub Pages).
+# Se migrar para domínio próprio na raiz, troque para "/assets/images/posts".
+public_folder: "/giovanna-gimenez-site/assets/images/posts"
+
+locale: pt
+
+collections:
+  - name: reflexoes
+    label: "Reflexões (Caderno Clínico)"
+    label_singular: "Post"
+    description: "Textos do Caderno Clínico. Preencha e clique em Publicar."
+    folder: "src/reflexoes/posts"
+    extension: "md"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: "Título", widget: string }
+      - { name: date, label: "Data", widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false, picker_utc: true }
+      - { name: description, label: "Descrição para o Google (até ~160 caracteres)", widget: text }
+      - { name: resumo, label: "Resumo (aparece no card e ao compartilhar)", widget: text }
+      - { name: tempoLeitura, label: "Tempo de leitura (ex.: 4 min)", widget: string, required: false }
+      - { name: cover, label: "Foto de capa (opcional)", widget: image, required: false }
+      - { name: coverAlt, label: "Descrição da foto de capa (acessibilidade)", widget: string, required: false }
+      - { name: draft, label: "Rascunho (não publicar ainda)", widget: boolean, default: false }
+      - { name: body, label: "Conteúdo do texto", widget: markdown }

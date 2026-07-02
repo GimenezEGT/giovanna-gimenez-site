@@ -30,9 +30,9 @@ Objetivos, em ordem de prioridade:
 
 - **Hospedagem:** GitHub Pages. O site é 100% estático; **sem backend** e sem build
   server obrigatório no deploy.
-- **Meta: zero build.** Arquivos servidos diretamente. Se qualquer ferramenta de build for
-  proposta, ela precisa de aprovação explícita do cliente *antes* de ser adotada, e o output
-  final precisa ser estático e versionado.
+- **Build mínimo aprovado (emenda 2026-07-02).** O gerador **Eleventy** monta as páginas do
+  blog (Markdown → HTML) no CI (GitHub Actions), publicando `_site/`. O output continua
+  estático/versionável. Qualquer OUTRA ferramenta de build exige aprovação explícita.
 - **Caminhos relativos** para todos os assets (GitHub Pages serve em subpath
   `usuario.github.io/repo/`). Nenhum caminho absoluto iniciando em `/`.
 - Deploy via **GitHub Actions** (`.github/workflows/deploy.yml`) publicando o conteúdo

@@ -4,6 +4,10 @@
 # Artefatos de tooling do oh-my-claudecode (estado de sessão local)
 .omc/
 
+# Node / build do Eleventy
+node_modules/
+_site/
+
 # Sistema
 Thumbs.db
 .DS_Store

@@ -1,0 +1,13 @@
+{
+  "name": "giovanna-gimenez-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional + blog (Caderno Clínico) de Giovanna Gimenez — Eleventy gera as páginas do blog.",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
