@@ -80,6 +80,9 @@ acesso à administração.
   ferramenta de edição, não parte do site público).
 - **Caracteres/acentos e nomes de arquivo**: o endereço (URL) do post é gerado automaticamente
   a partir do título, sem a autora precisar pensar em nomes de arquivo.
+- **Cards de destaque na home**: são **manuais** nesta fase. Excluir um post pelo painel o
+  remove da listagem/sitemap, mas **não** remove um card fixo da home — a autora (ou dev)
+  ajusta a home manualmente se necessário.
 
 ## Requirements *(mandatory)*
 
@@ -98,6 +101,7 @@ acesso à administração.
 - **FR-007**: O site público DEVE permanecer **estático, gratuito e sem regressão** de
   performance, acessibilidade e identidade visual já existentes.
 - **FR-008**: O processo DEVE preservar o **histórico de versões** dos posts (poder reverter).
+  *(Atendido inerentemente pelo backend git-based: cada publicação/edição é um commit versionado.)*
 - **FR-009**: A experiência DEVE ser em **português** e compreensível para pessoa leiga
   (rótulos claros, sem jargão técnico).
 
@@ -135,6 +139,9 @@ acesso à administração.
   (Eleventy)** monta as páginas no padrão atual do site, via **GitHub Actions**. Adota-se
   uma etapa de **build** (output continua estático/gratuito no GitHub Pages). **Requer
   emenda à constituição** (que hoje pede "zero build") — aprovado pela pessoa usuária.
+> Nota: o nome do branch (`feat/cms-blog-decap`) menciona "decap" por herança da ideia
+> inicial; a implementação usa **Sveltia CMS** (compatível com a config do Decap).
+
 - **CMS + autenticação:** **Sveltia CMS** com **login via GitHub** (git-based, gratuito,
   moderno). Requer: um **GitHub OAuth App** e um **handler de OAuth** gratuito
   (ex.: Cloudflare Worker `sveltia-cms-auth`). Quem publica precisa de conta GitHub com

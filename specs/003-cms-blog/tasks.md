@@ -26,7 +26,7 @@ description: "Task list — Painel de administração do blog (CMS)"
 
 ## Phase 3: US1 — Publicar novo post pelo painel (P1) 🎯 MVP
 - [ ] T014 [US1] Criar `admin/index.html` que carrega o Sveltia CMS
-- [ ] T015 [US1] Criar `admin/config.yml`: backend `github` (repo/branch), coleção "Reflexões" (campos title/date/description/cover/tempoLeitura/draft/body em PT), `media_folder` `src/assets/images/posts`
+- [ ] T015 [US1] Criar `admin/config.yml`: backend `github` (repo/branch), coleção "Reflexões" (campos title/date/description/cover/tempoLeitura/draft/body em PT), `media_folder` `src/assets/images/posts`. *(O backend git provê histórico/reversão de cada post — cobre FR-008.)*
 - [ ] T016 [US1] Passthrough de `admin/` no `.eleventy.js` e pasta `src/assets/images/posts/` (com `.gitkeep`)
 - [ ] T017 [US1] Verificar (local/preview): criar post de teste gera `.md` + página no padrão do site e aparece na listagem
 
@@ -44,7 +44,9 @@ description: "Task list — Painel de administração do blog (CMS)"
 - [ ] T024 [US3] Confirmar exclusão pelo painel remove o `.md` e regenera listagem + sitemap (some da home se aplicável)
 
 ## Phase 7: Polish & Docs
-- [ ] T025 [P] Atualizar `README.md` (fluxo do painel para leigos) e alinhar `assets/images/README.md`
+- [ ] T025 [P] Atualizar `README.md` (fluxo do painel para leigos) e alinhar `assets/images/README.md`.
+      *(Documentar que os 3 cards de destaque da home são MANUAIS: excluir um post no CMS não
+      remove o card da home — G1.)*
 - [ ] T026 [P] Atualizar `reflexoes/_template-post.html` (marcar como legado/manual, já que posts vêm do CMS)
 - [ ] T027 Verificação final: sem regressão (Lighthouse, AA, 1 `<h1>`, JSON-LD válido, sem scroll horizontal) e site público funciona sem o painel
 
