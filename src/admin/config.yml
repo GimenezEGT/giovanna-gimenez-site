@@ -4,7 +4,7 @@ backend:
   repo: GimenezEGT/giovanna-gimenez-site
   branch: main
   # URL do handler de OAuth (Cloudflare Worker sveltia-cms-auth). Ver specs/003-cms-blog/quickstart.md.
-  base_url: https://SEU-WORKER-OAUTH.workers.dev
+  base_url: https://sveltia-cms-auth.gigipsicanalise.workers.dev
 
 # Onde as imagens enviadas são gravadas (caminho no repositório)
 media_folder: "src/assets/images/posts"
