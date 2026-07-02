@@ -6,11 +6,12 @@ o detalhamento original está em [specs/constitution.md](../../specs/constitutio
 
 ## Core Principles
 
-### I. Estático primeiro, zero build (NON-NEGOTIABLE)
-O site é 100% estático e roda em GitHub Pages sem backend e sem etapa de build
-obrigatória. Os arquivos são servidos como estão. Qualquer ferramenta de build precisa
-de aprovação explícita e deve produzir output estático versionado. Todos os caminhos de
-assets são relativos (o site pode ser servido em subpath ou em domínio próprio).
+### I. Estático primeiro, build mínimo aprovado (NON-NEGOTIABLE)
+O site entregue é 100% estático e roda em GitHub Pages sem backend. **Emenda (v1.1.0,
+2026-07-02):** é permitido **um** passo de build **leve** — o gerador **Eleventy** monta as
+páginas do blog (Markdown → HTML) no CI (GitHub Actions), publicando `_site/`. O output
+continua estático, sem runtime de servidor. Qualquer OUTRA ferramenta de build ainda exige
+aprovação explícita. Caminhos de assets preferencialmente relativos.
 
 ### II. Stack vanilla, sem frameworks (NON-NEGOTIABLE)
 HTML5 semântico + CSS moderno (custom properties, Flexbox, Grid) + JavaScript vanilla
@@ -60,4 +61,5 @@ Esta constituição prevalece sobre outras práticas. Alterações exigem regist
 arquivo e atualização da versão. Toda entrega deve verificar conformidade com os princípios
 I–V. Complexidade adicional precisa ser justificada (preferência por simplicidade/YAGNI).
 
-**Version**: 1.0.0 | **Ratified**: 2026-06-30 | **Last Amended**: 2026-06-30
+**Version**: 1.1.0 | **Ratified**: 2026-06-30 | **Last Amended**: 2026-07-02
+(v1.1.0: build leve com Eleventy permitido — feature 003 CMS do blog.)

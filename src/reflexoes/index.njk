@@ -1,0 +1,31 @@
+---
+layout: base.njk
+root: "../"
+pageTitle: "Reflexões · Caderno Clínico — Giovanna Gimenez"
+description: "Caderno Clínico: textos breves sobre ansiedade, autoestima, relacionamentos, adolescência e outras questões da vida emocional, por Giovanna Gimenez, psicanalista."
+ogTitle: "Reflexões · Caderno Clínico"
+ogDescription: "Textos breves sobre questões que atravessam nossa vida emocional e relacional."
+---
+    <section class="blog-hero">
+      <div class="container">
+        <span class="selo">Caderno Clínico</span>
+        <h1>Reflexões</h1>
+        <p class="apoio">Textos breves sobre questões que atravessam nossa vida emocional e relacional.</p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <div class="blog-lista">
+        {% for post in collections.posts %}
+          <article class="post-card reveal{% if loop.index > 1 and loop.index < 5 %} reveal--{{ loop.index }}{% endif %}">
+            {% if post.data.cover %}<img class="post-card__thumb" src="{{ post.data.cover }}" width="600" height="338" loading="lazy" alt="{{ post.data.coverAlt or post.data.title }}">{% endif %}
+            <p class="post-meta"><time datetime="{{ post.date | dataIso }}">{{ post.date | dataCurta }}</time>{% if post.data.tempoLeitura %} · {{ post.data.tempoLeitura }}{% endif %}</p>
+            <h3>{{ post.data.title }}</h3>
+            <p class="post-card__resumo">{{ post.data.resumo or post.data.description }}</p>
+            <a class="link-texto" href="posts/{{ post.fileSlug }}.html">Leia mais</a>
+          </article>
+        {% endfor %}
+        </div>
+      </div>
+    </section>

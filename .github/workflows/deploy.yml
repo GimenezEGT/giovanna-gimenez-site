@@ -1,6 +1,6 @@
 name: Deploy GitHub Pages
 
-# Publica o site estático (raiz do repositório) no GitHub Pages a cada push na branch main.
+# Build com Eleventy (Node) e publicação do resultado (_site) no GitHub Pages a cada push na main.
 on:
   push:
     branches: [main]
@@ -27,14 +27,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Eleventy)
+        run: npm run build
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Site é estático na raiz; sem passo de build.
-          path: .
+          # Publica o resultado do build do Eleventy.
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
