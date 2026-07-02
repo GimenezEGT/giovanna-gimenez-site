@@ -1,0 +1,7 @@
+# Build do site no Netlify (mesmo do GitHub Pages): Eleventy gera _site/.
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "20"
