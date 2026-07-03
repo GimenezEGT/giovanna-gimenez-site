@@ -1,0 +1,6 @@
+# Configurações locais do Claude Code (podem conter credenciais/preferências da máquina)
+.claude/settings.local.json
+
+# Sistema
+Thumbs.db
+.DS_Store
