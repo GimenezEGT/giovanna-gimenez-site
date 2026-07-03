@@ -1,9 +1,8 @@
 # Imagens — guia para a cliente
 
-Esta pasta guarda as fotos do site. Enquanto as fotos reais não chegam, o site mostra
-**placeholders ilustrados** (desenhos em SVG): `giovanna-hero.svg` (primeira dobra) e
-`giovanna-sobre.svg` (seção "Sobre mim"). São leves e servem só para o site ficar
-apresentável nesse intervalo.
+Esta pasta guarda as fotos do site. A seção **"Sobre mim"** já usa a **foto real** da
+Giovanna (`giovanna-sobre.jpg`/`.webp`). A **primeira dobra (hero)** ainda mostra um
+**placeholder ilustrado** em SVG (`giovanna-hero.svg`) até a foto real chegar.
 
 ## Como colocar as fotos reais
 
