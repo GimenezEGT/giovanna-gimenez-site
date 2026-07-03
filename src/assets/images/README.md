@@ -1,8 +1,8 @@
 # Imagens — guia para a cliente
 
-Esta pasta guarda as fotos do site. A seção **"Sobre mim"** já usa a **foto real** da
-Giovanna (`giovanna-sobre.jpg`/`.webp`). A **primeira dobra (hero)** ainda mostra um
-**placeholder ilustrado** em SVG (`giovanna-hero.svg`) até a foto real chegar.
+Esta pasta guarda as fotos do site. As duas imagens principais já usam **fotos reais**:
+a **primeira dobra (hero)** usa uma foto de atmosfera (`giovanna-hero.jpg`/`.webp`) e a
+seção **"Sobre mim"** usa o retrato da Giovanna (`giovanna-sobre.jpg`/`.webp`).
 
 ## Como colocar as fotos reais
 
