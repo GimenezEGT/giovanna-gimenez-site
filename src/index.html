@@ -69,7 +69,7 @@
     .logo__sub{font-family:var(--fonte-corpo);font-size:var(--fs-xs);font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--cor-oliva)}
     .nav{display:flex;align-items:center;gap:clamp(1rem,2vw,2rem)}
     .nav__lista{display:flex;align-items:center;gap:clamp(0.9rem,1.6vw,1.8rem)}
-    .nav__link{text-decoration:none;font-size:var(--fs-sm);color:var(--cor-marrom);padding:0.3rem 0;position:relative}
+    .nav__link{text-decoration:none;font-size:var(--fs-sm);color:var(--cor-marrom);padding:0.3rem 0;position:relative;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap}
     .nav__toggle{display:none;background:none;border:0;padding:0.5rem;border-radius:var(--raio-sm)}
     .nav__toggle svg{width:28px;height:28px;stroke:var(--cor-marrom)}
     .btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--fonte-corpo);font-size:var(--fs-sm);font-weight:700;letter-spacing:0.01em;text-decoration:none;padding:0.75rem 1.4rem;border-radius:999px;border:2px solid transparent;transition:background var(--transicao),color var(--transicao),border-color var(--transicao),transform var(--transicao)}
@@ -85,7 +85,7 @@
     .hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem}
     .hero__foto{border-radius:var(--raio);box-shadow:var(--sombra);aspect-ratio:4/5;object-fit:cover;width:100%}
     @media (max-width:920px){.hero__grid{grid-template-columns:1fr}.hero__foto{max-width:420px}}
-    @media (max-width:760px){.nav__toggle{display:inline-flex}.nav__lista{position:fixed;inset:4.5rem 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--cor-creme);border-bottom:var(--borda);box-shadow:var(--sombra);padding:0.5rem 1.5rem 1.5rem;transform:translateY(-120%);transition:transform 260ms ease}.nav[data-aberto="true"] .nav__lista{transform:translateY(0)}.nav__lista li{width:100%;border-bottom:var(--borda)}.nav__lista li:last-child{border-bottom:0}.nav__link{display:block;padding:0.9rem 0}.nav .btn{margin-top:1rem}}
+    @media (max-width:1024px){.nav__toggle{display:inline-flex}.nav__lista{position:fixed;inset:4.5rem 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--cor-creme);border-bottom:var(--borda);box-shadow:var(--sombra);padding:0.5rem 1.5rem 1.5rem;transform:translateY(-120%);transition:transform 260ms ease}.nav[data-aberto="true"] .nav__lista{transform:translateY(0)}.nav__lista li{width:100%;border-bottom:var(--borda)}.nav__lista li:last-child{border-bottom:0}.nav__link{display:block;padding:0.9rem 0}.nav .btn{margin-top:1rem}}
   </style>
   <link rel="stylesheet" href="assets/css/styles.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
@@ -299,7 +299,9 @@
           <!-- SOBRE_FORMACAO: lista repetível — copie um <li> para adicionar um item -->
           <ul class="formacao">
             <li>Formação em Psicanálise pela EECP</li>
-            <li>Acompanhamento terapêutico e manejo de pacientes em regime de internação e Hospital-Dia | Clínica Vivência Psiquiatria Dinâmica<br>Participação em equipes multiprofissionais para discussão de casos complexos e transição de cuidados.<br>Facilitação de grupos terapêuticos e oficinas focadas no desenvolvimento de autonomia e reabilitação psicosocial.</li>
+            <li>Acompanhamento terapêutico e manejo de pacientes em regime de internação e Hospital-Dia | Clínica Vivência Psiquiatria Dinâmica</li>
+            <li>Participação em equipes multiprofissionais para discussão de casos complexos e transição de cuidados.</li>
+            <li>Facilitação de grupos terapêuticos e oficinas focadas no desenvolvimento de autonomia e reabilitação psicosocial.</li>
           </ul>
 
           <!-- SOBRE_CTA_LABEL / SOBRE_CTA_URL -->
