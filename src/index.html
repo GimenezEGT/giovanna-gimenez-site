@@ -75,16 +75,15 @@
     .btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--fonte-corpo);font-size:var(--fs-sm);font-weight:700;letter-spacing:0.01em;text-decoration:none;padding:0.75rem 1.4rem;border-radius:999px;border:2px solid transparent;transition:background var(--transicao),color var(--transicao),border-color var(--transicao),transform var(--transicao)}
     .btn--primario{background:var(--cor-oliva);color:var(--cor-creme)}
     .link-texto{font-weight:700;text-decoration:none;color:var(--cor-oliva);border-bottom:2px solid currentColor;padding-bottom:2px}
-    .hero{padding-block:clamp(3rem,2rem + 5vw,6rem);position:relative;overflow:hidden}
-    .hero>.container{position:relative;z-index:1}
-    .hero::before{content:"";position:absolute;z-index:0;right:-120px;top:50%;transform:translateY(-50%);width:clamp(280px,38vw,460px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(167,174,140,0.35),rgba(167,174,140,0) 70%);pointer-events:none}
-    .hero__grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-    .hero__frase{font-family:var(--fonte-titulo);font-size:var(--fs-hero);line-height:1.12;font-weight:600;margin-bottom:1.5rem}
-    .hero__nome{font-size:var(--fs-md);margin-bottom:0.25rem}.hero__nome strong{color:var(--cor-oliva)}
-    .hero__sub{color:var(--marrom-suave);margin-bottom:1.25rem}.hero__apoio{margin-bottom:2rem}
+    .hero{position:relative;isolation:isolate;overflow:hidden;display:grid;align-items:center;min-height:clamp(26rem,56vh,34rem);padding-block:clamp(2.5rem,1.6rem + 2.6vw,4.25rem);background-color:var(--cor-creme)}
+    .hero__foto{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:72% center}
+    .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to right,var(--cor-creme) 0%,var(--cor-creme) 46%,rgba(246,243,239,0.9) 60%,rgba(246,243,239,0.35) 78%,rgba(246,243,239,0) 92%),linear-gradient(to bottom,var(--cor-creme) 0%,rgba(246,243,239,0) 16%,rgba(246,243,239,0) 82%,var(--cor-creme) 100%),linear-gradient(to left,var(--cor-creme) 0%,rgba(246,243,239,0) 16%)}
+    .hero__conteudo{position:relative;z-index:2}
+    .hero__frase{font-family:var(--fonte-titulo);font-size:var(--fs-hero);line-height:1.12;font-weight:600;margin-bottom:1.4rem;max-width:34rem}
+    .hero__nome{font-size:var(--fs-md);margin-bottom:0.25rem;max-width:30rem}.hero__nome strong{color:var(--cor-oliva)}
+    .hero__sub{color:var(--marrom-suave);margin-bottom:1.25rem;max-width:30rem}.hero__apoio{margin-bottom:2rem;max-width:30rem}
     .hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem}
-    .hero__foto{border-radius:var(--raio);box-shadow:var(--sombra);aspect-ratio:4/5;object-fit:cover;width:100%}
-    @media (max-width:920px){.hero__grid{grid-template-columns:1fr}.hero__foto{max-width:420px}}
+    @media (max-width:920px){.hero{min-height:clamp(26rem,72vh,34rem)}.hero__foto{object-position:62% center}.hero::before{background:linear-gradient(to right,var(--cor-creme) 0%,var(--cor-creme) 48%,rgba(246,243,239,0.85) 100%),linear-gradient(to bottom,var(--cor-creme) 0%,rgba(246,243,239,0) 18%,rgba(246,243,239,0) 84%,var(--cor-creme) 100%)}}
     @media (max-width:1024px){.nav__toggle{display:inline-flex}.nav__lista{position:fixed;inset:4.5rem 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--cor-creme);border-bottom:var(--borda);box-shadow:var(--sombra);padding:0.5rem 1.5rem 1.5rem;transform:translateY(-120%);transition:transform 260ms ease}.nav[data-aberto="true"] .nav__lista{transform:translateY(0)}.nav__lista li{width:100%;border-bottom:var(--borda)}.nav__lista li:last-child{border-bottom:0}.nav__link{display:block;padding:0.9rem 0}.nav .btn{margin-top:1rem}}
   </style>
   <link rel="stylesheet" href="assets/css/styles.css" media="print" onload="this.media='all'">
@@ -163,35 +162,32 @@
 
     <!-- ============================ HERO ============================ -->
     <section class="hero" id="inicio">
-      <div class="container hero__grid">
-        <div>
-          <!-- FRASE_HERO:início -->
-          <p class="hero__frase">Há histórias que precisam, antes de tudo, encontrar um lugar onde possam ser escutadas.</p>
-          <!-- FRASE_HERO:fim -->
+      <!-- Foto de atmosfera — fundo full-bleed do hero (decorativa; a camada de fade
+           garante a legibilidade AA do texto e dissolve as bordas no fundo creme). -->
+      <picture>
+        <source srcset="assets/images/giovanna-hero.webp" type="image/webp">
+        <img class="hero__foto" src="assets/images/giovanna-hero.jpg"
+             width="640" height="800" alt="" fetchpriority="high">
+      </picture>
 
-          <h1 class="hero__nome"><strong>Giovanna Gimenez</strong> — Psicanalista Clínica</h1>
-          <p class="hero__sub">Atendimento online para adolescentes e adultos.</p>
+      <div class="container hero__conteudo">
+        <!-- FRASE_HERO:início -->
+        <p class="hero__frase">Há histórias que precisam, antes de tudo, encontrar um lugar onde possam ser escutadas.</p>
+        <!-- FRASE_HERO:fim -->
 
-          <!-- HERO_APOIO:início -->
-          <p class="hero__apoio apoio">Um espaço de escuta para compreender emoções, relações e a própria história.</p>
-          <!-- HERO_APOIO:fim -->
+        <h1 class="hero__nome"><strong>Giovanna Gimenez</strong> — Psicanalista Clínica</h1>
+        <p class="hero__sub">Atendimento online para adolescentes e adultos.</p>
 
-          <div class="hero__ctas">
-            <!-- HERO_CTA_LABEL / HERO_CTA_URL (destino: WhatsApp/contato) -->
-            <a class="btn btn--primario" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agendar sua primeira conversa</a>
-            <!-- HERO_CTA2_LABEL / HERO_CTA2_URL (âncora suave para "Sobre") -->
-            <a class="link-texto" href="#sobre">Saiba mais</a>
-          </div>
+        <!-- HERO_APOIO:início -->
+        <p class="hero__apoio apoio">Um espaço de escuta para compreender emoções, relações e a própria história.</p>
+        <!-- HERO_APOIO:fim -->
+
+        <div class="hero__ctas">
+          <!-- HERO_CTA_LABEL / HERO_CTA_URL (destino: WhatsApp/contato) -->
+          <a class="btn btn--primario" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agendar sua primeira conversa</a>
+          <!-- HERO_CTA2_LABEL / HERO_CTA2_URL (âncora suave para "Sobre") -->
+          <a class="link-texto" href="#sobre">Saiba mais</a>
         </div>
-
-        <!-- Foto de atmosfera (hero) — proporção 4:5. -->
-        <picture>
-          <source srcset="assets/images/giovanna-hero.webp" type="image/webp">
-          <img class="hero__foto" src="assets/images/giovanna-hero.jpg"
-               width="640" height="800"
-               alt="Ambiente acolhedor com um sofá claro e uma planta, banhados por luz natural dourada."
-               fetchpriority="high">
-        </picture>
       </div>
     </section>
 
