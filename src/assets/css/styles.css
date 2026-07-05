@@ -257,31 +257,23 @@ a:hover { color: var(--cor-oliva); }
   padding-block: clamp(2.5rem, 1.6rem + 2.6vw, 4.25rem);
   background-color: var(--cor-creme);   /* fallback se a imagem falhar */
 }
-.hero__foto {                            /* foto de fundo cobrindo todo o hero */
+.hero__foto {                            /* foto na metade direita; dissolve no fundo à esquerda */
   position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
+  top: 0; right: 0; bottom: 0;
+  width: 52%;
   height: 100%;
+  z-index: 0;
   object-fit: cover;
-  object-position: 72% center;
+  object-position: center;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 36%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 36%);
 }
-.hero::before {                          /* camada de fade: legibilidade AA + bordas no creme */
+.hero::before {                          /* véu de legibilidade — aplicado só no mobile (ver responsivo) */
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    linear-gradient(to right,
-      var(--cor-creme) 0%, var(--cor-creme) 46%,
-      rgba(246, 243, 239, 0.9) 60%, rgba(246, 243, 239, 0.35) 78%,
-      rgba(246, 243, 239, 0) 92%),
-    linear-gradient(to bottom,
-      var(--cor-creme) 0%, rgba(246, 243, 239, 0) 16%,
-      rgba(246, 243, 239, 0) 82%, var(--cor-creme) 100%),
-    linear-gradient(to left,
-      var(--cor-creme) 0%, rgba(246, 243, 239, 0) 16%);
 }
 .hero__conteudo { position: relative; z-index: 2; }
 .hero__frase {
@@ -290,7 +282,7 @@ a:hover { color: var(--cor-oliva); }
   line-height: 1.12;
   font-weight: 600;
   margin-bottom: 1.4rem;
-  max-width: 34rem;
+  max-width: 32rem;
 }
 .hero__nome { font-size: var(--fs-md); margin-bottom: 0.25rem; max-width: 30rem; }
 .hero__nome strong { color: var(--cor-oliva); }
@@ -512,11 +504,14 @@ a:hover { color: var(--cor-oliva); }
 /* 12. RESPONSIVO ------------------------------------------------------- */
 @media (max-width: 920px) {
   .hero { min-height: clamp(26rem, 72vh, 34rem); }
-  .hero__foto { object-position: 62% center; }
+  .hero__foto {
+    left: 0; width: 100%; object-position: 62% center;
+    -webkit-mask-image: none; mask-image: none;
+  }
   .hero::before {
     background:
       linear-gradient(to right,
-        var(--cor-creme) 0%, var(--cor-creme) 48%,
+        var(--cor-creme) 0%, var(--cor-creme) 46%,
         rgba(246, 243, 239, 0.85) 100%),
       linear-gradient(to bottom,
         var(--cor-creme) 0%, rgba(246, 243, 239, 0) 18%,
