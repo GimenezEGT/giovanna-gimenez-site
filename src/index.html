@@ -76,14 +76,14 @@
     .btn--primario{background:var(--cor-oliva);color:var(--cor-creme)}
     .link-texto{font-weight:700;text-decoration:none;color:var(--cor-oliva);border-bottom:2px solid currentColor;padding-bottom:2px}
     .hero{position:relative;isolation:isolate;overflow:hidden;display:grid;align-items:center;min-height:clamp(26rem,56vh,34rem);padding-block:clamp(2.5rem,1.6rem + 2.6vw,4.25rem);background-color:var(--cor-creme)}
-    .hero__foto{position:absolute;top:0;right:0;bottom:0;width:52%;height:100%;z-index:0;object-fit:cover;object-position:center;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 36%);mask-image:linear-gradient(to right,transparent 0%,#000 36%)}
-    .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none}
+    .hero__foto{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+    .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to right,var(--cor-creme) 0%,var(--cor-creme) 42%,rgba(246,243,239,0.82) 56%,rgba(246,243,239,0.25) 72%,rgba(246,243,239,0) 86%)}
     .hero__conteudo{position:relative;z-index:2}
-    .hero__frase{font-family:var(--fonte-titulo);font-size:var(--fs-hero);line-height:1.12;font-weight:600;margin-bottom:1.4rem;max-width:32rem}
+    .hero__frase{font-family:var(--fonte-titulo);font-size:var(--fs-hero);line-height:1.12;font-weight:600;margin-bottom:1.4rem;max-width:36rem}
     .hero__nome{font-size:var(--fs-md);margin-bottom:0.25rem;max-width:30rem}.hero__nome strong{color:var(--cor-oliva)}
     .hero__sub{color:var(--marrom-suave);margin-bottom:1.25rem;max-width:30rem}.hero__apoio{margin-bottom:2rem;max-width:30rem}
     .hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem}
-    @media (max-width:920px){.hero{min-height:clamp(26rem,72vh,34rem)}.hero__foto{left:0;width:100%;object-position:62% center;-webkit-mask-image:none;mask-image:none}.hero::before{background:linear-gradient(to right,var(--cor-creme) 0%,var(--cor-creme) 46%,rgba(246,243,239,0.85) 100%),linear-gradient(to bottom,var(--cor-creme) 0%,rgba(246,243,239,0) 18%,rgba(246,243,239,0) 84%,var(--cor-creme) 100%)}}
+    @media (max-width:920px){.hero{min-height:clamp(26rem,72vh,34rem)}.hero__foto{object-position:60% center}.hero::before{background:linear-gradient(to right,var(--cor-creme) 0%,var(--cor-creme) 44%,rgba(246,243,239,0.85) 100%),linear-gradient(to bottom,var(--cor-creme) 0%,rgba(246,243,239,0) 18%,rgba(246,243,239,0) 84%,var(--cor-creme) 100%)}}
     @media (max-width:1024px){.nav__toggle{display:inline-flex}.nav__lista{position:fixed;inset:4.5rem 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--cor-creme);border-bottom:var(--borda);box-shadow:var(--sombra);padding:0.5rem 1.5rem 1.5rem;transform:translateY(-120%);transition:transform 260ms ease}.nav[data-aberto="true"] .nav__lista{transform:translateY(0)}.nav__lista li{width:100%;border-bottom:var(--borda)}.nav__lista li:last-child{border-bottom:0}.nav__link{display:block;padding:0.9rem 0}.nav .btn{margin-top:1rem}}
   </style>
   <link rel="stylesheet" href="assets/css/styles.css" media="print" onload="this.media='all'">
@@ -117,7 +117,7 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "Quanto dura uma sessão?", "acceptedAnswer": { "@type": "Answer", "text": "Cada sessão tem duração aproximada de 50 minutos." } },
+      { "@type": "Question", "name": "Quanto tempo dura uma sessão?", "acceptedAnswer": { "@type": "Answer", "text": "Cada sessão tem duração aproximada de 50 minutos." } },
       { "@type": "Question", "name": "Como funciona o atendimento online?", "acceptedAnswer": { "@type": "Answer", "text": "As sessões acontecem por vídeo, em um horário combinado, de um lugar onde você se sinta à vontade e com privacidade." } },
       { "@type": "Question", "name": "Qual a frequência?", "acceptedAnswer": { "@type": "Answer", "text": "Em geral, os encontros são semanais. A frequência é definida em conjunto, conforme cada processo." } },
       { "@type": "Question", "name": "Aceita convênio?", "acceptedAnswer": { "@type": "Answer", "text": "O atendimento é particular. Mediante solicitação, é possível emitir recibo para eventual reembolso." } },
@@ -167,7 +167,7 @@
       <picture>
         <source srcset="assets/images/giovanna-hero.webp" type="image/webp">
         <img class="hero__foto" src="assets/images/giovanna-hero.jpg"
-             width="640" height="800" alt="" fetchpriority="high">
+             width="1600" height="1344" alt="" fetchpriority="high">
       </picture>
 
       <div class="container hero__conteudo">
@@ -315,13 +315,13 @@
         </div>
         <!-- AREAS_ATENDIMENTO: lista repetível — copie uma <li class="area"> para adicionar -->
         <ul class="areas-grid">
-          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg><span>Relacionamentos</span></li>
-          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16.5 7.1 18l.9-5.5-4-3.9L9.5 8Z"/></svg><span>Autoestima</span></li>
-          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 9 2-5h7"/></svg><span>Ansiedade</span></li>
-          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg><span>Depressão</span></li>
-          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg><span>Autoconhecimento</span></li>
-          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2"/><circle cx="8" cy="8" r="3"/><path d="M15 11a3 3 0 1 0-1-5.8"/><path d="M21 21v-2a4 4 0 0 0-3-3.8"/></svg><span>Conflitos familiares</span></li>
-          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg><span>Adolescência</span></li>
+          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg><span>Relacionamentos</span></li>\n
+          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16.5 7.1 18l.9-5.5-4-3.9L9.5 8Z"/></svg><span>Autoestima</span></li>\n
+          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 9 2-5h7"/></svg><span>Ansiedade</span></li>\n
+          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg><span>Depressão</span></li>\n
+          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg><span>Autoconhecimento</span></li>\n
+          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2"/><circle cx="8" cy="8" r="3"/><path d="M15 11a3 3 0 1 0-1-5.8"/><path d="M21 21v-2a4 4 0 0 0-3-3.8"/></svg><span>Conflitos familiares</span></li>\n
+          <li class="area"><svg class="area__icone" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg><span>Adolescência</span></li>\n
         </ul>
       </div>
     </section>
