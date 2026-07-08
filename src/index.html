@@ -79,9 +79,9 @@
     .hero__foto{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
     .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to right,var(--cor-creme) 0%,var(--cor-creme) 42%,rgba(246,243,239,0.82) 56%,rgba(246,243,239,0.25) 72%,rgba(246,243,239,0) 86%)}
     .hero__conteudo{position:relative;z-index:2}
-    .hero__frase{font-family:var(--fonte-titulo);font-size:var(--fs-hero);line-height:1.12;font-weight:600;margin-bottom:1.4rem;max-width:36rem}
+    .hero__frase{font-family:var(--fonte-titulo);font-size:clamp(1.6rem,1.15rem + 2.2vw,2.7rem);line-height:1.14;font-weight:600;margin-bottom:1rem;max-width:34rem}
     .hero__nome{font-size:var(--fs-md);margin-bottom:0.25rem;max-width:30rem}.hero__nome strong{color:var(--cor-oliva)}
-    .hero__sub{color:var(--marrom-suave);margin-bottom:1.25rem;max-width:30rem}.hero__apoio{margin-bottom:2rem;max-width:30rem}
+    .hero__sub{color:var(--marrom-suave);margin-bottom:1rem;max-width:30rem}.hero__apoio{margin-bottom:1.5rem;max-width:30rem}
     .hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem}
     @media (max-width:920px){.hero{min-height:clamp(26rem,72vh,34rem)}.hero__foto{object-position:60% center}.hero::before{background:linear-gradient(to right,var(--cor-creme) 0%,var(--cor-creme) 44%,rgba(246,243,239,0.85) 100%),linear-gradient(to bottom,var(--cor-creme) 0%,rgba(246,243,239,0) 18%,rgba(246,243,239,0) 84%,var(--cor-creme) 100%)}}
     @media (max-width:1024px){.nav__toggle{display:inline-flex}.nav__lista{position:fixed;inset:4.5rem 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--cor-creme);border-bottom:var(--borda);box-shadow:var(--sombra);padding:0.5rem 1.5rem 1.5rem;transform:translateY(-120%);transition:transform 260ms ease}.nav[data-aberto="true"] .nav__lista{transform:translateY(0)}.nav__lista li{width:100%;border-bottom:var(--borda)}.nav__lista li:last-child{border-bottom:0}.nav__link{display:block;padding:0.9rem 0}.nav .btn{margin-top:1rem}}
@@ -120,7 +120,7 @@
       { "@type": "Question", "name": "Quanto tempo dura uma sessão?", "acceptedAnswer": { "@type": "Answer", "text": "Cada sessão tem duração aproximada de 50 minutos." } },
       { "@type": "Question", "name": "Como funciona o atendimento online?", "acceptedAnswer": { "@type": "Answer", "text": "As sessões acontecem por vídeo, em um horário combinado, de um lugar onde você se sinta à vontade e com privacidade." } },
       { "@type": "Question", "name": "Qual a frequência?", "acceptedAnswer": { "@type": "Answer", "text": "Em geral, os encontros são semanais. A frequência é definida em conjunto, conforme cada processo." } },
-      { "@type": "Question", "name": "Aceita convênio?", "acceptedAnswer": { "@type": "Answer", "text": "O atendimento é particular. Mediante solicitação, é possível emitir recibo para eventual reembolso." } },
+      { "@type": "Question", "name": "Aceita convênio?", "acceptedAnswer": { "@type": "Answer", "text": "Não, mas tenho horários específicos para atendimento social. Consulte a agenda." } },
       { "@type": "Question", "name": "Como agendar?", "acceptedAnswer": { "@type": "Answer", "text": "Você pode entrar em contato pelo WhatsApp ou e-mail para conversarmos e encontrar o melhor horário." } }
     ]
   }
@@ -151,8 +151,8 @@
           <li><a class="nav__link" href="reflexoes/">Reflexões</a></li>
           <li><a class="nav__link" href="#faq">Perguntas Frequentes</a></li>
           <li><a class="nav__link" href="#contato">Contato</a></li>
-          <!-- HERO_CTA_URL também usado aqui (botão Agendar do menu) -->
-          <li><a class="btn btn--primario" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agendar</a></li>
+          <!-- AGENDAR_URL: link oficial de agendamento (também no hero e no CTA final) -->
+          <li><a class="btn btn--primario" href="https://corpora.bio/2d251bdb0e" target="_blank" rel="noopener">Agendar</a></li>
         </ul>
       </nav>
     </div>
@@ -183,8 +183,8 @@
         <!-- HERO_APOIO:fim -->
 
         <div class="hero__ctas">
-          <!-- HERO_CTA_LABEL / HERO_CTA_URL (destino: WhatsApp/contato) -->
-          <a class="btn btn--primario" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agendar sua primeira conversa</a>
+          <!-- HERO_CTA_LABEL / AGENDAR_URL (destino: link oficial de agendamento) -->
+          <a class="btn btn--primario" href="https://corpora.bio/2d251bdb0e" target="_blank" rel="noopener">Agendar sua primeira conversa</a>
           <!-- HERO_CTA2_LABEL / HERO_CTA2_URL (âncora suave para "Sobre") -->
           <a class="link-texto" href="#sobre">Saiba mais</a>
         </div>
@@ -225,7 +225,14 @@
 
     <!-- ====================== TEXTO INTRODUTÓRIO ====================== -->
     <section class="secao intro">
-      <div class="container centro reveal">
+      <!-- Foto de atmosfera full-bleed (decorativa); fade espelhado ao hero:
+           foco à esquerda, dissolve no creme à direita, mantendo o texto legível. -->
+      <picture>
+        <source srcset="assets/images/intro-atmosfera.webp" type="image/webp">
+        <img class="intro__foto" src="assets/images/intro-atmosfera.jpg"
+             width="1600" height="1344" alt="" loading="lazy">
+      </picture>
+      <div class="container intro__conteudo reveal">
         <!-- INTRO_P1:início -->
         <p>Existem momentos em que sentimos que repetimos os mesmos caminhos, carregamos angústias difíceis de nomear ou simplesmente percebemos que algo já não faz sentido como antes.</p>
         <!-- INTRO_P1:fim -->
@@ -385,7 +392,7 @@
           </details>
           <details class="faq__item">
             <summary>Aceita convênio?</summary>
-            <div class="faq__corpo"><p>O atendimento é particular. Mediante solicitação, é possível emitir recibo para eventual reembolso. <!-- ajuste conforme seu caso --></p></div>
+            <div class="faq__corpo"><p>Não, mas tenho horários específicos para atendimento social. Consulte a agenda.</p></div>
           </details>
           <details class="faq__item">
             <summary>Como agendar?</summary>
@@ -422,7 +429,7 @@
           </a>
         </div>
 
-        <a class="btn btn--claro" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agendar atendimento</a>
+        <a class="btn btn--claro" href="https://corpora.bio/2d251bdb0e" target="_blank" rel="noopener">Agendar atendimento</a>
       </div>
     </section>
   </main>

@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "site",
-      "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8754"],
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8754", "--directory", "_site"],
       "port": 8754
     }
   ]
