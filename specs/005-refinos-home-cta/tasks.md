@@ -80,7 +80,7 @@ mostra a nova resposta; JSON-LD contém texto idêntico.
       (primeira dobra) e do bloco intro em desktop e mobile
 - [ ] T015 [P] Performance (SC-006): Lighthouse/PSI **≥ 95** (mobile e desktop) — a foto do intro
       não pode degradar o LCP do hero. Preliminar local + oficial pós-deploy
-- [ ] T016 Abrir PR mergeável (base=main)
+- [X] T016 Abrir PR mergeável (base=main) — branch enviada; PR via link (gh não autenticado)
 
 ## Dependencies & Execution Order
 
