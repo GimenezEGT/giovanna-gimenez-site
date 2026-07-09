@@ -1,16 +1,15 @@
 # Configuração do painel (Sveltia CMS — compatível com Decap).
 backend:
   name: github
-  repo: GimenezEGT/giovanna-gimenez-site
+  repo: GiovannaGimenez98/giovannagimenez98.github.io
   branch: main
   # URL do handler de OAuth (Cloudflare Worker sveltia-cms-auth). Ver specs/003-cms-blog/quickstart.md.
   base_url: https://sveltia-cms-auth.gigipsicanalise.workers.dev
 
 # Onde as imagens enviadas são gravadas (caminho no repositório)
 media_folder: "src/assets/images/posts"
-# Caminho usado nas páginas publicadas (subpath do GitHub Pages).
-# Se migrar para domínio próprio na raiz, troque para "/assets/images/posts".
-public_folder: "/giovanna-gimenez-site/assets/images/posts"
+# Caminho usado nas páginas publicadas (raiz do GitHub Pages — giovannagimenez98.github.io).
+public_folder: "/assets/images/posts"
 
 locale: pt
 
