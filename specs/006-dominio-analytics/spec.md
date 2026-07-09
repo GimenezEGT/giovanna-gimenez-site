@@ -7,7 +7,7 @@
 **Status**: Draft
 
 **Input**: User description: "Preparar o site para hospedagem na conta da própria cliente
-(giovannagimenez98.github.io, site-raiz) migrando a URL base de projeto-subpath para raiz, e
+(giovannapsicanalista.github.io, site-raiz) migrando a URL base de projeto-subpath para raiz, e
 instalar Google Analytics (GA4 G-EPFLCGTMPV) em todas as páginas, sem mudar layout/conteúdo."
 
 > Builds sobre as features anteriores (site institucional + blog). Não muda layout, paleta,
@@ -18,7 +18,7 @@ instalar Google Analytics (GA4 G-EPFLCGTMPV) em todas as páginas, sem mudar lay
 
 ### User Story 1 - Site correto no domínio da cliente (Priority: P1) 🎯 MVP
 
-O site é publicado na conta da própria cliente e servido na **raiz** `https://giovannagimenez98.github.io/`.
+O site é publicado na conta da própria cliente e servido na **raiz** `https://giovannapsicanalista.github.io/`.
 Todas as URLs "canônicas" de SEO (canonical, Open Graph, Twitter card, JSON-LD, sitemap, robots)
 apontam para o domínio novo e para a **raiz** (sem o subpath `/giovanna-gimenez-site/`), de modo
 que mecanismos de busca e compartilhamento em redes sociais mostram o endereço certo.
@@ -28,14 +28,14 @@ para o endereço antigo (errado), quebrando SEO, prévia de links e o sitemap. �
 
 **Independent Test**: Publicar (ou servir o build) e conferir que `canonical`, `og:url`,
 `og:image`, `twitter:image`, o JSON-LD e o `sitemap.xml`/`robots.txt` contêm
-`https://giovannagimenez98.github.io/...` (raiz), e que a navegação e os assets carregam sem erro.
+`https://giovannapsicanalista.github.io/...` (raiz), e que a navegação e os assets carregam sem erro.
 
 **Acceptance Scenarios**:
 
 1. **Given** a home publicada na raiz, **When** inspeciono o `<head>`, **Then** `canonical` e
-   `og:url` são `https://giovannagimenez98.github.io/` (sem subpath).
+   `og:url` são `https://giovannapsicanalista.github.io/` (sem subpath).
 2. **Given** o blog (listagem e um post), **When** inspeciono canonical/OG, **Then** apontam para
-   `https://giovannagimenez98.github.io/reflexoes/...` (gerados a partir da URL base única).
+   `https://giovannapsicanalista.github.io/reflexoes/...` (gerados a partir da URL base única).
 3. **Given** `sitemap.xml` e `robots.txt`, **When** abertos, **Then** todas as URLs usam o domínio
    novo na raiz.
 4. **Given** qualquer página, **When** navego pelos links internos e assets (CSS, imagens, logo),
@@ -69,7 +69,7 @@ domínio, entrega valor por si.
 ### User Story 3 - Edição de posts pela cliente (CMS) no novo repositório (Priority: P3)
 
 Se a cliente usar o painel `/admin/`, ele aponta para o **repositório dela**
-(`GiovannaGimenez98/giovannagimenez98.github.io`) e as imagens enviadas resolvem para a **raiz**
+(`giovannapsicanalista/giovannapsicanalista.github.io`) e as imagens enviadas resolvem para a **raiz**
 (`/assets/images/posts`), não para o subpath antigo.
 
 **Why this priority**: Só importa se/quando o CMS for usado; a publicação do site não depende
@@ -78,7 +78,7 @@ disso. A infraestrutura de login (OAuth) é um passo à parte, fora do código.
 **Acceptance Scenarios**:
 
 1. **Given** `src/admin/config.yml`, **When** inspecionado, **Then** `repo` é
-   `GiovannaGimenez98/giovannagimenez98.github.io` e `public_folder` é `/assets/images/posts`.
+   `giovannapsicanalista/giovannapsicanalista.github.io` e `public_folder` é `/assets/images/posts`.
 
 ### Edge Cases
 
@@ -96,7 +96,7 @@ disso. A infraestrutura de login (OAuth) é um passo à parte, fora do código.
 
 ### Functional Requirements
 
-- **FR-001**: A URL base do site DEVE ser `https://giovannagimenez98.github.io` (site-raiz, sem o
+- **FR-001**: A URL base do site DEVE ser `https://giovannapsicanalista.github.io` (site-raiz, sem o
   subpath `/giovanna-gimenez-site/`), refletida na fonte única de URL do site.
 - **FR-002**: Todas as URLs absolutas de SEO/metadados da **home** (canonical, `og:url`,
   `og:image`, `twitter:image`, JSON-LD `url`/`image`) DEVEM usar o domínio novo na raiz.
@@ -108,7 +108,7 @@ disso. A infraestrutura de login (OAuth) é um passo à parte, fora do código.
 - **FR-006**: A navegação interna e os assets (CSS, imagens, logo, fontes) DEVEM continuar
   funcionando na raiz sem link quebrado (já são relativos; não podem regredir).
 - **FR-007**: O CMS (`src/admin/config.yml`) DEVE apontar `repo` para
-  `GiovannaGimenez98/giovannagimenez98.github.io` e `public_folder` para `/assets/images/posts`.
+  `giovannapsicanalista/giovannapsicanalista.github.io` e `public_folder` para `/assets/images/posts`.
 - **FR-008**: TODAS as páginas do site (home, listagem do blog, cada post, 404) DEVEM carregar o
   script do Google Analytics GA4 com o Measurement ID `G-EPFLCGTMPV`.
 - **FR-009**: O script de analytics DEVE ser carregado de forma **assíncrona**, sem bloquear a
@@ -120,7 +120,7 @@ disso. A infraestrutura de login (OAuth) é um passo à parte, fora do código.
 
 ### Key Entities
 
-- **URL base do site**: endereço canônico único (`https://giovannagimenez98.github.io`) do qual
+- **URL base do site**: endereço canônico único (`https://giovannapsicanalista.github.io`) do qual
   derivam sitemap, canonical e Open Graph do blog.
 - **Metadados de SEO da home**: conjunto de URLs absolutas hardcoded na home estática.
 - **Config do CMS**: repositório-alvo e pasta pública de mídia do painel de edição.
@@ -132,7 +132,7 @@ disso. A infraestrutura de login (OAuth) é um passo à parte, fora do código.
 ### Measurable Outcomes
 
 - **SC-001**: **100%** das URLs de SEO/metadados (home, blog, sitemap, robots) usam
-  `https://giovannagimenez98.github.io` na raiz; **0** ocorrências do domínio/subpath antigo em
+  `https://giovannapsicanalista.github.io` na raiz; **0** ocorrências do domínio/subpath antigo em
   arquivos servidos.
 - **SC-002**: **100%** dos tipos de página (home, listagem, post, 404) carregam o GA4
   `G-EPFLCGTMPV`.
@@ -144,8 +144,8 @@ disso. A infraestrutura de login (OAuth) é um passo à parte, fora do código.
 
 ## Assumptions
 
-- O repositório na conta da cliente se chamará exatamente `giovannagimenez98.github.io`
-  (site-raiz de usuária), servido em `https://giovannagimenez98.github.io/`.
+- O repositório na conta da cliente se chamará exatamente `giovannapsicanalista.github.io`
+  (site-raiz de usuária), servido em `https://giovannapsicanalista.github.io/`.
 - Navegação e assets já usam caminhos relativos (`assets/…`, `{{ root }}` = `../`) e funcionam na
   raiz sem alteração — apenas as URLs absolutas de SEO precisam mudar.
 - O workflow de deploy (`.github/workflows/deploy.yml`) é genérico (usa `GITHUB_TOKEN`, publica

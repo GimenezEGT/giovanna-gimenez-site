@@ -6,7 +6,7 @@
 
 Duas mudanças de baixo risco, sem tocar em layout/conteúdo: (1) **migrar a URL base** de
 projeto-subpath (`gimenezegt.github.io/giovanna-gimenez-site/`) para o **site-raiz** da cliente
-(`giovannagimenez98.github.io/`), atualizando a fonte única de URL (`site.json`), os metadados
+(`giovannapsicanalista.github.io/`), atualizando a fonte única de URL (`site.json`), os metadados
 hardcoded da home, `robots.txt`, `404.html` e a config do CMS; (2) **instalar o GA4**
 (`G-EPFLCGTMPV`) via snippet `gtag.js` assíncrono no `<head>` de todas as páginas (home, blog via
 `base.njk`, e `404.html`). Navegação e assets já são relativos → nada de links quebrados na raiz.
@@ -23,7 +23,7 @@ hardcoded da home, `robots.txt`, `404.html` e a config do CMS; (2) **instalar o 
 - Home `src/index.html` é **estática/passthrough** (não usa `site.json`) → URLs de SEO hardcoded.
 - `src/robots.txt` (Sitemap), `src/404.html` (links absolutos), `src/admin/config.yml` (CMS).
 
-**Plataforma-alvo**: GitHub Pages estático, servido na **raiz** de `giovannagimenez98.github.io`.
+**Plataforma-alvo**: GitHub Pages estático, servido na **raiz** de `giovannapsicanalista.github.io`.
 
 **Project Type**: site estático + blog (Eleventy).
 
@@ -54,13 +54,13 @@ navegação/assets relativos não podem regredir (FR-006).
 ## Abordagem técnica (decisões / "research")
 
 1. **URL base única (blog + sitemap)** — *Decisão*: editar `src/_data/site.json` →
-   `"url": "https://giovannagimenez98.github.io"` (sem barra final, mantendo o padrão atual:
+   `"url": "https://giovannapsicanalista.github.io"` (sem barra final, mantendo o padrão atual:
    `sitemap.njk` usa `{{ site.url }}/` e `base.njk` usa `{{ site.url }}{{ page.url }}`).
    *Rationale*: uma mudança corrige canonical/OG do blog inteiro, o `sitemap.xml` e o JSON-LD dos
    posts de uma vez (FR-001/FR-003).
 
 2. **Metadados hardcoded da home** — *Decisão*: em `src/index.html`, substituir a string base
-   `https://gimenezegt.github.io/giovanna-gimenez-site` → `https://giovannagimenez98.github.io`
+   `https://gimenezegt.github.io/giovanna-gimenez-site` → `https://giovannapsicanalista.github.io`
    (de-subpath automático). Cobre canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD
    `url`/`image` e o comentário de referência. *Rationale*: a home é passthrough e não lê
    `site.json` (FR-002).
@@ -71,7 +71,7 @@ navegação/assets relativos não podem regredir (FR-006).
    absoluta no domínio certo também é válida e explícita.
 
 4. **CMS admin** — *Decisão*: em `src/admin/config.yml`, `repo:` →
-   `GiovannaGimenez98/giovannagimenez98.github.io` e `public_folder:` → `/assets/images/posts`
+   `giovannapsicanalista/giovannapsicanalista.github.io` e `public_folder:` → `/assets/images/posts`
    (raiz). *Rationale*: FR-007. O OAuth (Worker) é infra à parte (fora do código).
 
 5. **Google Analytics GA4** — *Decisão*: inserir o snippet oficial `gtag.js` (com `async`) no

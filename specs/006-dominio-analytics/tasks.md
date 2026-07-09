@@ -19,14 +19,14 @@ layout/estilo/conteúdo (FR-011).
 
 ## Phase 2: US1 — Site correto no domínio da cliente (P1) 🎯 MVP
 
-**Meta**: todas as URLs de SEO/metadados usam `https://giovannagimenez98.github.io` na raiz.
+**Meta**: todas as URLs de SEO/metadados usam `https://giovannapsicanalista.github.io` na raiz.
 **Teste independente**: inspecionar `<head>`/sitemap/robots no build e ver o domínio novo (raiz),
 sem ocorrência do antigo, com navegação/assets funcionando.
 
-- [X] T002 [US1] Editar `src/_data/site.json`: `url` → `https://giovannagimenez98.github.io`
+- [X] T002 [US1] Editar `src/_data/site.json`: `url` → `https://giovannapsicanalista.github.io`
       (sem barra final) — corrige canonical/OG do blog, `sitemap.xml` e JSON-LD dos posts
 - [X] T003 [P] [US1] Em `src/index.html`, substituir a base
-      `https://gimenezegt.github.io/giovanna-gimenez-site` → `https://giovannagimenez98.github.io`
+      `https://gimenezegt.github.io/giovanna-gimenez-site` → `https://giovannapsicanalista.github.io`
       (canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD `url`/`image`, comentário)
 - [X] T004 [P] [US1] Em `src/robots.txt`, atualizar a linha `Sitemap:` para o domínio novo (raiz)
 - [X] T005 [P] [US1] Em `src/404.html`, substituir a base antiga pelo domínio novo nos 3 links
@@ -50,7 +50,7 @@ carregamento assíncrono.
 **Teste independente**: inspecionar `src/admin/config.yml`.
 
 - [X] T009 [US3] Em `src/admin/config.yml`: `repo` →
-      `GiovannaGimenez98/giovannagimenez98.github.io` e `public_folder` → `/assets/images/posts`
+      `giovannapsicanalista/giovannapsicanalista.github.io` e `public_folder` → `/assets/images/posts`
 
 ## Phase 5: QA & Polish
 
@@ -89,5 +89,5 @@ carregamento assíncrono.
 
 - Sem tasks de teste automatizado (validação por build + preview + inspeção), conforme a spec.
 - Pré-requisito externo (fora do código): o repositório na conta da cliente deve se chamar
-  `giovannagimenez98.github.io` e o Source do Pages = "GitHub Actions". O OAuth do CMS (Worker) é
+  `giovannapsicanalista.github.io` e o Source do Pages = "GitHub Actions". O OAuth do CMS (Worker) é
   reconfigurado à parte.

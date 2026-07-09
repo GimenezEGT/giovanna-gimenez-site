@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Se migrar para domínio próprio, atualize a URL abaixo (ver README.md)
-Sitemap: https://giovannagimenez98.github.io/sitemap.xml
+Sitemap: https://giovannapsicanalista.github.io/sitemap.xml
